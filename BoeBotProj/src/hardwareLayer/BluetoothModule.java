@@ -1,7 +1,7 @@
 package hardwareLayer;
 
 import TI.*;
-import jssc.*;
+//import jssc.*;
 /**
  *
  * @author Luc Verstraaten

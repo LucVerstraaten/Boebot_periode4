@@ -7,8 +7,8 @@ import TI.*;
  */
 public class Motor {
 
-    private static Servo s1 = new Servo(13);
-    private static Servo s2 = new Servo(12);
+    private static Servo s1 = new Servo(12);
+    private static Servo s2 = new Servo(13);
     private static double wait;
     private static int CurrentSpeed;
 
@@ -24,8 +24,7 @@ public class Motor {
         BoeBot.wait(10);
         CurrentSpeed = 0;
         wait = (degrees/360.0) * 2200;
-        Timer t1 = new Timer((int)wait);
-        t1.mark();
+
 
         if(direction == 1)
         {
@@ -39,7 +38,10 @@ public class Motor {
             s2.update(1400);
             CurrentSpeed = 100;
         }
+        Timer t1 = new Timer((int)wait);
+        t1.mark();
         while(!t1.timeout()){}
+
         s1.update(1500);
         s2.update(1500);
         CurrentSpeed = 0;
@@ -141,6 +143,42 @@ public class Motor {
             speedInRev();
             CurrentSpeed = 200;
         }
+    }
+
+    /*public static void TurnSeconds(int Direction, int time) {
+        // links
+        if (Direction == 1) {
+            s1.update(1450);
+            s2.update(1450);
+            CurrentSpeed = 200;
+        }
+
+        // rechts
+        if (Direction == 2) {
+            s1.update(1550);
+            s2.update(1550);
+            CurrentSpeed = 200;
+        }
+
+        //forawrd
+        if (Direction == 3) {
+            s1.update(1410);
+            s2.update(1590);
+            CurrentSpeed = 200;
+        }
+
+        //backward
+        if (Direction == 4) {
+            s1.update(1700);
+            s2.update(1300);
+            CurrentSpeed = 200;
+        }
+    }*/
+
+    public static void emergencyBrake() {
+        s1.update(1500);
+        s2.update(1500);
+        CurrentSpeed = 0;
     }
 }
 
