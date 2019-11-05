@@ -9,8 +9,6 @@ import hardwareLayer.*;
  */
 public class FrameControl {
 
-    private static Servo s1 = new Servo(14);
-    private static Servo s2 = new Servo(15);
     private static Motor mt = new Motor();
     private static int currentSpeed;
 
@@ -18,31 +16,7 @@ public class FrameControl {
         currentSpeed = 0;
     }
 
-    public static void TurnSeconds(String Direction, int time) {
-        if (Direction.equals("Left")) {
-            s1.update(1450);
-            s2.update(1450);
-            currentSpeed = 200;
-        }
 
-        if (Direction.equals("Right")) {
-            s1.update(1550);
-            s2.update(1550);
-            currentSpeed = 200;
-        }
-
-        if (Direction.equals("Foreward")) {
-            s1.update(1410);
-            s2.update(1590);
-            currentSpeed = 200;
-        }
-
-        if (Direction.equals("Backward")) {
-            s1.update(1700);
-            s2.update(1300);
-            currentSpeed = 200;
-        }
-    }
 
     public static void forward() {
         mt.moveForward();
@@ -91,8 +65,7 @@ public class FrameControl {
      * method for stopping the boebot
      */
     public static void emergencyBrake() {
-        s1.update(1500);
-        s2.update(1500);
+        mt.emergencyBrake();
         currentSpeed = 0;
     }
 
@@ -135,23 +108,23 @@ public class FrameControl {
     }
 
     public static void forwardShort() {
-        if (Detectie.obstacle(2)) {
+        //if (Detectie.obstacle(2)) {
             Timer timer = new Timer(1250);
             timer.mark();
             while (!timer.timeout()) {
                 forward();
             }
-        }
+        //}
     }
 
     public static void forwardLong() {
-        if (Detectie.obstacle(2)) {
-            Timer timer = new Timer(2500);
+        //if (Detectie.obstacle(2)) {
+            TI.Timer timer = new Timer(2500);
             timer.mark();
             while (!timer.timeout()) {
                 forward();
             }
-        }
+        //}
     }
 
 }
