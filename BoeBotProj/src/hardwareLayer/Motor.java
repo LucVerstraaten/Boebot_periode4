@@ -23,7 +23,7 @@ public class Motor {
         s2.update(1500);
         BoeBot.wait(10);
         CurrentSpeed = 0;
-        wait = (degrees/360.0) * 1750;
+        wait = (degrees/360.0) * 1575;
 
 
         if(direction == 1)

@@ -14,10 +14,10 @@ public class RobotMain {
             BoeBot.rgbSet(2, Color.GREEN);
             BoeBot.rgbSet(3, Color.GREEN);
             BoeBot.rgbSet(4, Color.GREEN);*/
-            BoeBot.digitalWrite(3,true);
+
 
             //BoeBot.rgbShow();
-            //FrameControl.achtje();
+            FrameControl.achtje();
             BoeBot.wait(20000);
         }
         //boolean state = true;
