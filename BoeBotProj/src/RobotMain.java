@@ -1,14 +1,24 @@
 import TI.*;
 import communicationLayer.*;
 
+import java.awt.*;
+
 public class RobotMain {
 
     public static void main(String[] args) {
 
 
         while (true) {
-            FrameControl.toTheLeft();
-            BoeBot.wait(2000000);
+            /*BoeBot.rgbSet(0, Color.GREEN);
+            BoeBot.rgbSet(1, Color.GREEN);
+            BoeBot.rgbSet(2, Color.GREEN);
+            BoeBot.rgbSet(3, Color.GREEN);
+            BoeBot.rgbSet(4, Color.GREEN);*/
+            BoeBot.digitalWrite(3,true);
+
+            //BoeBot.rgbShow();
+            //FrameControl.achtje();
+            BoeBot.wait(20000);
         }
         //boolean state = true;
 
