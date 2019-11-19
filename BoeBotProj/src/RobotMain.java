@@ -1,25 +1,19 @@
-import TI.*;
 import communicationLayer.*;
-
-import java.awt.*;
 
 public class RobotMain {
 
     public static void main(String[] args) {
 
+        SpeakerControl speak = new SpeakerControl();
+        LedControl led = new LedControl();
+        //while (true) {
 
-        while (true) {
-            /*BoeBot.rgbSet(0, Color.GREEN);
-            BoeBot.rgbSet(1, Color.GREEN);
-            BoeBot.rgbSet(2, Color.GREEN);
-            BoeBot.rgbSet(3, Color.GREEN);
-            BoeBot.rgbSet(4, Color.GREEN);*/
+            speak.start();
+            led.speaking();
 
-
-            //BoeBot.rgbShow();
             FrameControl.achtje();
-            BoeBot.wait(20000);
-        }
+            //BoeBot.wait(20000);
+        //}
         //boolean state = true;
 
 
