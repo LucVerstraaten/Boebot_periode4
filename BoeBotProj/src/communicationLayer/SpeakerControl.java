@@ -15,13 +15,15 @@ public class SpeakerControl extends Thread {
 
 
         Random random = new Random();
-        switch (random.nextInt(7)) {
+        int i =5;
+        switch (i/*random.nextInt(6)*/) {
 
             case 1:Speaker.phase1(); break;
             case 2:Speaker.phase2(); break;
             case 3:Speaker.phase1(); Speaker.phase2(); break;
             case 4:Speaker.phase1(); Speaker.phase2(); Speaker.phase1();break;
-            case 5:Speaker.phase1(); Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); Speaker.phase1();break;
+            case 5:Speaker.phase1(); Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); Speaker.phase1();
+                Speaker.phase1(); Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); Speaker.phase1();break;
             case 6:Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); break;
         }
 
