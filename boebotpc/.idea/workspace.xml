@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ad7130-4169-4ff2-ba69-5708da764803" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/BoebotController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controllers/WifiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/BoebotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/BoebotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,27 +14,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/BoebotController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding>
+                <element signature="e#614#3050#0" />
+                <element signature="e#692#785#1" />
+                <element signature="e#842#935#1" />
+                <element signature="e#992#1085#1" />
+                <element signature="e#1142#1198#1" />
+                <element signature="e#1298#1391#1" />
+                <element signature="e#1448#1504#1" />
+                <element signature="e#1561#1654#1" />
+                <element signature="e#1711#1804#1" />
                 <element signature="e#1904#1997#1" />
                 <element signature="e#2054#2147#1" />
+                <element signature="e#2204#2261#1" />
+                <element signature="e#2318#2411#1" />
+                <element signature="e#2511#2567#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Pane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="496" lean-forward="true" selection-start-line="496" selection-end-line="496" />
+              <folding>
+                <element signature="class#2198:3012" />
+                <element signature="class#3056:3870" />
+                <element signature="class#3914:4728" />
+                <element signature="class#4772:5586" />
+                <element signature="class#5630:6444" />
+                <element signature="class#6488:7302" />
+                <element signature="class#7346:8160" />
+                <element signature="class#8204:9018" />
+                <element signature="class#9062:9876" />
+                <element signature="class#9920:10734" />
+                <element signature="class#10778:11592" />
+                <element signature="class#11636:12450" />
+                <element signature="class#12494:13308" />
+                <element signature="class#13352:14166" />
+                <element signature="class#14211:15025" />
+                <element signature="class#15070:15884" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/WifiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -56,15 +99,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controllers/BoebotController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/WifiController.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Pane.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/BoebotController.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectId" id="1UVxXIcupvMuJqEvbGQ4auKx8lf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -86,12 +131,6 @@
               <item name="boebotpc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="boebotpc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="boebotpc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -100,7 +139,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576053605695" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576064419234" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -143,8 +182,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Image Layers" />
@@ -152,7 +190,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Learn" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27600554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -176,23 +214,64 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controllers/BoebotController.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="709">
+          <caret line="496" lean-forward="true" selection-start-line="496" selection-end-line="496" />
           <folding>
-            <element signature="e#1904#1997#1" />
-            <element signature="e#2054#2147#1" />
+            <element signature="class#2198:3012" />
+            <element signature="class#3056:3870" />
+            <element signature="class#3914:4728" />
+            <element signature="class#4772:5586" />
+            <element signature="class#5630:6444" />
+            <element signature="class#6488:7302" />
+            <element signature="class#7346:8160" />
+            <element signature="class#8204:9018" />
+            <element signature="class#9062:9876" />
+            <element signature="class#9920:10734" />
+            <element signature="class#10778:11592" />
+            <element signature="class#11636:12450" />
+            <element signature="class#12494:13308" />
+            <element signature="class#13352:14166" />
+            <element signature="class#14211:15025" />
+            <element signature="class#15070:15884" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/WifiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/BoebotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#614#3050#0" />
+            <element signature="e#692#785#1" />
+            <element signature="e#842#935#1" />
+            <element signature="e#992#1085#1" />
+            <element signature="e#1142#1198#1" />
+            <element signature="e#1298#1391#1" />
+            <element signature="e#1448#1504#1" />
+            <element signature="e#1561#1654#1" />
+            <element signature="e#1711#1804#1" />
+            <element signature="e#1904#1997#1" />
+            <element signature="e#2054#2147#1" />
+            <element signature="e#2204#2261#1" />
+            <element signature="e#2318#2411#1" />
+            <element signature="e#2511#2567#1" />
           </folding>
         </state>
       </provider>

@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class BoebotController {
 
     private ArrayList<Integer> commands = new ArrayList<Integer>();
+    private int  Orientation =1;
 
-    public void commandTranslator(int cx, int cy,int nx,int ny, int Orientation)
+    public void commandTranslator(int cx, int cy,int nx,int ny )
     {
         /*
         COMMANDS:
@@ -25,16 +26,19 @@ public class BoebotController {
             case 1:
                 if(nx == cx && ny < cy)
                 {
+                    Orientation = 4;
                     commands.add(3);
                     commands.add(1);
                 }
                 if(nx == cx && ny > cy)
                 {
+                    Orientation = 2;
                     commands.add(4);
                     commands.add(1);
                 }
                 if(nx < cx && ny == cy)
                 {
+                    Orientation = 3;
                     commands.add(2);
                     commands.add(1);
                 }
@@ -46,6 +50,7 @@ public class BoebotController {
             case 2:
                 if(nx == cx && ny < cy)
                 {
+                    Orientation = 4;
                     commands.add(2);
                     commands.add(1);
                 }
@@ -55,11 +60,13 @@ public class BoebotController {
                 }
                 if(nx < cx && ny == cy)
                 {
+                    Orientation = 3;
                     commands.add(4);
                     commands.add(1);
                 }
                 if(nx > cx && ny == cy)
                 {
+                    Orientation = 1;
                     commands.add(3);
                     commands.add(1);
                 }
@@ -67,11 +74,13 @@ public class BoebotController {
             case 3:
                 if(nx == cx && ny < cy)
                 {
+                    Orientation = 4;
                     commands.add(4);
                     commands.add(1);
                 }
                 if(nx == cx && ny > cy)
                 {
+                    Orientation = 2;
                     commands.add(3);
                     commands.add(1);
                 }
@@ -82,6 +91,7 @@ public class BoebotController {
                 }
                 if(nx > cx && ny == cy)
                 {
+                    Orientation = 1;
                     commands.add(2);
                     commands.add(1);
                 }
@@ -93,16 +103,19 @@ public class BoebotController {
                 }
                 if(nx == cx && ny > cy)
                 {
+                    Orientation = 2;
                     commands.add(2);
                     commands.add(1);
                 }
                 if(nx < cx && ny == cy)
                 {
+                    Orientation = 3;
                     commands.add(3);
                     commands.add(1);
                 }
                 if(nx > cx && ny == cy)
                 {
+                    Orientation = 1;
                     commands.add(4);
                     commands.add(1);
                 }

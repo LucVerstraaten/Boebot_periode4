@@ -1,3 +1,5 @@
+import Controllers.BoebotController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -459,6 +461,7 @@ public class Main extends JFrame {
 
         btn_Route.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                BoebotController trans = new BoebotController();
                 int xlength = Math.abs(startcordx - endcordx);
                 int ylength = Math.abs(startcordy - endcordy);
                 int nextcordx =0;
@@ -468,11 +471,11 @@ public class Main extends JFrame {
 
                     if(startcordx>endcordx) {
                         nextcordx = endcordx-1;
-                        //bla.bla(startcordx,startcordy,nextcordx,endcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
                     }
                     if(startcordx<endcordx) {
                         nextcordx = endcordx+1;
-                        //bla.bla(startcordx,startcordy,nextcordx,endcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
                         startcordx = nextcordx;
                     }
                     xlength--;
@@ -481,12 +484,12 @@ public class Main extends JFrame {
                 {
                     if(startcordy>endcordy) {
                         nextcordy = endcordy-1;
-                        //bla.bla(startcordx,startcordy,startcordx,nextcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
                         startcordy = nextcordy;
                     }
                     if(startcordy<endcordy) {
                         nextcordy = endcordy+1;
-                        //bla.bla(startcordx,startcordy,startcordx,nextcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
                         startcordy = nextcordy;
                     }
                     ylength--;
