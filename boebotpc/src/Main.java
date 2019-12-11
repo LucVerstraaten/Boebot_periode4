@@ -506,7 +506,7 @@ public class Main extends JFrame {
                     if(startcordy<endcordy) {
                         nextcordy = endcordy+1;
                         //bla.bla(startcordx,startcordy,startcordx,nextcordy,1 temp);
-                        pos.setLocation(125+((startcordy-1)*50),350);
+                        pos.setLocation(125+((startcordy)*50),350);
                         startcordy = nextcordy;
                         //addRoutePiece();
                     }
