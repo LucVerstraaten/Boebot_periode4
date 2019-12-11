@@ -1,7 +1,10 @@
+import Controllers.BoebotController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
 
 public class Main extends JFrame {
     private static Button btn_x1_y1 = new Button();
@@ -26,31 +29,33 @@ public class Main extends JFrame {
     private static int startcordy = 0;
     private static int endcordy = 0;
 
+    private static Main window = new Main();
+    private  static Pane p = new Pane();
 
 
     public static void main(String args[]) {
-        Main window = new Main();
+
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        Pane p = new Pane();
-        btn_x1_y1.setBounds(100,300,25,25);
-        btn_x2_y1.setBounds(100,250,25,25);
+
+        btn_x1_y1.setBounds(100,350,25,25);
+        btn_x2_y1.setBounds(100,275,25,25);
         btn_x3_y1.setBounds(100,200,25,25);
-        btn_x4_y1.setBounds(100,150,25,25);
-        btn_x1_y2.setBounds(150,300,25,25);
-        btn_x2_y2.setBounds(150,250,25,25);
-        btn_x3_y2.setBounds(150,200,25,25);
-        btn_x4_y2.setBounds(150,150,25,25);
-        btn_x1_y3.setBounds(200,300,25,25);
-        btn_x2_y3.setBounds(200,250,25,25);
-        btn_x3_y3.setBounds(200,200,25,25);
-        btn_x4_y3.setBounds(200,150,25,25);
-        btn_x1_y4.setBounds(250,300,25,25);
-        btn_x2_y4.setBounds(250,250,25,25);
-        btn_x3_y4.setBounds(250,200,25,25);
-        btn_x4_y4.setBounds(250,150,25,25);
+        btn_x4_y1.setBounds(100,125,25,25);
+        btn_x1_y2.setBounds(175,350,25,25);
+        btn_x2_y2.setBounds(175,275,25,25);
+        btn_x3_y2.setBounds(175,200,25,25);
+        btn_x4_y2.setBounds(175,125,25,25);
+        btn_x1_y3.setBounds(250,350,25,25);
+        btn_x2_y3.setBounds(250,275,25,25);
+        btn_x3_y3.setBounds(250,200,25,25);
+        btn_x4_y3.setBounds(250,125,25,25);
+        btn_x1_y4.setBounds(325,350,25,25);
+        btn_x2_y4.setBounds(325,275,25,25);
+        btn_x3_y4.setBounds(325,200,25,25);
+        btn_x4_y4.setBounds(325,125,25,25);
         btn_Route.setBounds(500,500,100,50);
         btn_Route.setLabel("Bereken route");
 
@@ -61,14 +66,20 @@ public class Main extends JFrame {
                     startcordx = 1;
                     startcordy = 1;
                     btn_x1_y1.setBackground(Color.GREEN);
+
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
-                    startcordy = 0;
-                    startcordx = 0;
+
                     endcordy = 1;
                     endcordx = 1;
                     btn_x1_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
+                    startcordy = 0;
+                    startcordx = 0;
+                    btn_x1_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -89,11 +100,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 1;
+                    btn_x2_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 1;
-                    btn_x2_y1.setBackground(Color.red);
+                    btn_x2_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -114,11 +129,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 1;
+                    btn_x3_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 1;
-                    btn_x3_y1.setBackground(Color.red);
+                    btn_x3_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -139,11 +158,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 1;
+                    btn_x4_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 1;
-                    btn_x4_y1.setBackground(Color.red);
+                    btn_x4_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -164,11 +187,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 2;
+                    btn_x1_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 2;
-                    btn_x1_y2.setBackground(Color.red);
+                    btn_x1_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -189,11 +216,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 2;
+                    btn_x2_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 2;
-                    btn_x2_y2.setBackground(Color.red);
+                    btn_x2_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -214,11 +245,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 2;
+                    btn_x3_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 2;
-                    btn_x3_y2.setBackground(Color.red);
+                    btn_x3_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -239,11 +274,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 2;
+                    btn_x4_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 2;
-                    btn_x4_y2.setBackground(Color.red);
+                    btn_x4_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -264,11 +303,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 3;
+                    btn_x1_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 3;
-                    btn_x1_y3.setBackground(Color.red);
+                    btn_x1_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -289,11 +332,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 3;
+                    btn_x2_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 3;
-                    btn_x2_y3.setBackground(Color.red);
+                    btn_x2_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -314,11 +361,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 3;
+                    btn_x3_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 3;
-                    btn_x3_y3.setBackground(Color.red);
+                    btn_x3_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -339,11 +390,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 3;
+                    btn_x4_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 3;
-                    btn_x4_y3.setBackground(Color.red);
+                    btn_x4_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -364,11 +419,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 4;
+                    btn_x1_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 4;
-                    btn_x1_y4.setBackground(Color.red);
+                    btn_x1_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -389,11 +448,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 4;
+                    btn_x2_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 4;
-                    btn_x2_y4.setBackground(Color.red);
+                    btn_x2_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -415,11 +478,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 4;
+                    btn_x3_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 4;
-                    btn_x3_y4.setBackground(Color.red);
+                    btn_x3_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -441,10 +508,8 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
-                    startcordy = 0;
-                    startcordx = 0;
-                    endcordy = 4;
                     endcordx = 4;
+                    endcordy = 4;
                     btn_x4_y4.setBackground(Color.red);
                 }
                 else if (endcordx != 0)
@@ -453,46 +518,63 @@ public class Main extends JFrame {
                     endcordy = 0;
                     btn_x4_y4.setBackground(Color.WHITE);
                 }
+                else if (endcordx != 0)
+                {
+                    endcordx = 0;
+                    endcordy = 0;
+                    btn_x4_y4.setBackground(Color.WHITE);
+                }
+
             }
         });
 
 
         btn_Route.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                BoebotController trans = new BoebotController();
                 int xlength = Math.abs(startcordx - endcordx);
                 int ylength = Math.abs(startcordy - endcordy);
                 int nextcordx =0;
                 int nextcordy =0;
                 while(xlength != 0)
                 {
+                    RectangleRoute pos = new RectangleRoute(25,50);
 
                     if(startcordx>endcordx) {
                         nextcordx = endcordx-1;
-                        //bla.bla(startcordx,startcordy,nextcordx,endcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
                     }
                     if(startcordx<endcordx) {
                         nextcordx = endcordx+1;
-                        //bla.bla(startcordx,startcordy,nextcordx,endcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
                         startcordx = nextcordx;
+                        //addRoutePiece();
                     }
                     xlength--;
                 }
                 while(ylength != 0)
                 {
+                    RectangleRoute pos = new RectangleRoute(50,25);
                     if(startcordy>endcordy) {
                         nextcordy = endcordy-1;
-                        //bla.bla(startcordx,startcordy,startcordx,nextcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
+                        pos.setLocation(125+((startcordy-2)*50),350);
+                        p.addRoutePiece(pos);
                         startcordy = nextcordy;
                     }
                     if(startcordy<endcordy) {
                         nextcordy = endcordy+1;
-                        //bla.bla(startcordx,startcordy,startcordx,nextcordy,1 temp);
+                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
+                        pos.setLocation(125+((startcordy-1)*50),350);
                         startcordy = nextcordy;
+                        //addRoutePiece();
                     }
                     ylength--;
                 }
 
+                p.repaint();
             }
+
         });
         window.add(btn_x1_y1);
         window.add(btn_x2_y1);

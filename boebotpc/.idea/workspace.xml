@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ad7130-4169-4ff2-ba69-5708da764803" name="Default Changelist" comment="" />
+    <list default="true" id="12ad7130-4169-4ff2-ba69-5708da764803" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/BoebotController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+              <folding>
+                <element signature="e#614#3050#0" />
+                <element signature="e#692#785#1" />
+                <element signature="e#842#935#1" />
+                <element signature="e#992#1085#1" />
+                <element signature="e#1142#1198#1" />
+                <element signature="e#1298#1391#1" />
+                <element signature="e#1448#1504#1" />
+                <element signature="e#1561#1654#1" />
+                <element signature="e#1711#1804#1" />
+                <element signature="e#1904#1997#1" />
+                <element signature="e#2054#2147#1" />
+                <element signature="e#2204#2261#1" />
+                <element signature="e#2318#2411#1" />
+                <element signature="e#2511#2567#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Pane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="500" column="57" selection-start-line="500" selection-start-column="57" selection-end-line="500" selection-end-column="57" />
+              <folding>
+                <element signature="class#2291:3260" />
+                <element signature="class#3304:4271" />
+                <element signature="class#4315:5354" />
+                <element signature="class#5326:6365" />
+                <element signature="class#6337:7376" />
+                <element signature="class#7348:8315" />
+                <element signature="class#8359:9398" />
+                <element signature="class#9370:10337" />
+                <element signature="class#10381:11420" />
+                <element signature="class#11392:12431" />
+                <element signature="class#12403:13442" />
+                <element signature="class#13414:14453" />
+                <element signature="class#14425:15464" />
+                <element signature="class#15436:16475" />
+                <element signature="class#16448:17487" />
+                <element signature="class#17460:18420" />
+                <element signature="class#16177:18159" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/WifiController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -15,7 +96,55 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Controllers/WifiController.java" />
+        <option value="$PROJECT_DIR$/src/Pane.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/BoebotController.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
   <component name="ProjectId" id="1UVxXIcupvMuJqEvbGQ4auKx8lf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="boebotpc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="boebotpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="boebotpc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="boebotpc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576065767052" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -54,5 +183,86 @@
       <updated>1575455601137</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Pane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/BoebotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#614#3050#0" />
+            <element signature="e#692#785#1" />
+            <element signature="e#842#935#1" />
+            <element signature="e#992#1085#1" />
+            <element signature="e#1142#1198#1" />
+            <element signature="e#1298#1391#1" />
+            <element signature="e#1448#1504#1" />
+            <element signature="e#1561#1654#1" />
+            <element signature="e#1711#1804#1" />
+            <element signature="e#1904#1997#1" />
+            <element signature="e#2054#2147#1" />
+            <element signature="e#2204#2261#1" />
+            <element signature="e#2318#2411#1" />
+            <element signature="e#2511#2567#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/WifiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="500" column="57" selection-start-line="500" selection-start-column="57" selection-end-line="500" selection-end-column="57" />
+          <folding>
+            <element signature="class#2291:3260" />
+            <element signature="class#3304:4271" />
+            <element signature="class#4315:5354" />
+            <element signature="class#5326:6365" />
+            <element signature="class#6337:7376" />
+            <element signature="class#7348:8315" />
+            <element signature="class#8359:9398" />
+            <element signature="class#9370:10337" />
+            <element signature="class#10381:11420" />
+            <element signature="class#11392:12431" />
+            <element signature="class#12403:13442" />
+            <element signature="class#13414:14453" />
+            <element signature="class#14425:15464" />
+            <element signature="class#15436:16475" />
+            <element signature="class#16448:17487" />
+            <element signature="class#17460:18420" />
+            <element signature="class#16177:18159" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
