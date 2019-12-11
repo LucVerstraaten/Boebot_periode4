@@ -6,6 +6,9 @@
       <change beforePath="$PROJECT_DIR$/src/Controllers/BoebotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/BoebotController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RectangleRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pane.java" afterDir="false" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
