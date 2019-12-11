@@ -100,11 +100,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 1;
+                    btn_x2_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 1;
-                    btn_x2_y1.setBackground(Color.red);
+                    btn_x2_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -125,11 +129,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 1;
+                    btn_x3_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 1;
-                    btn_x3_y1.setBackground(Color.red);
+                    btn_x3_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -150,11 +158,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 1;
+                    btn_x4_y1.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 1;
-                    btn_x4_y1.setBackground(Color.red);
+                    btn_x4_y1.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -175,11 +187,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 2;
+                    btn_x1_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 2;
-                    btn_x1_y2.setBackground(Color.red);
+                    btn_x1_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -200,11 +216,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 2;
+                    btn_x2_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 2;
-                    btn_x2_y2.setBackground(Color.red);
+                    btn_x2_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -225,11 +245,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 2;
+                    btn_x3_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 2;
-                    btn_x3_y2.setBackground(Color.red);
+                    btn_x3_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -250,11 +274,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 2;
+                    btn_x4_y2.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 2;
-                    btn_x4_y2.setBackground(Color.red);
+                    btn_x4_y2.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -275,11 +303,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 3;
+                    btn_x1_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 3;
-                    btn_x1_y3.setBackground(Color.red);
+                    btn_x1_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -300,11 +332,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 3;
+                    btn_x2_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 3;
-                    btn_x2_y3.setBackground(Color.red);
+                    btn_x2_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -325,11 +361,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 3;
+                    btn_x3_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 3;
-                    btn_x3_y3.setBackground(Color.red);
+                    btn_x3_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -350,11 +390,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 4;
+                    endcordy = 3;
+                    btn_x4_y3.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 4;
-                    endcordx = 3;
-                    btn_x4_y3.setBackground(Color.red);
+                    btn_x4_y3.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -375,11 +419,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 1;
+                    endcordy = 4;
+                    btn_x1_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 1;
-                    endcordx = 4;
-                    btn_x1_y4.setBackground(Color.red);
+                    btn_x1_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -400,11 +448,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 2;
+                    endcordy = 4;
+                    btn_x2_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 2;
-                    endcordx = 4;
-                    btn_x2_y4.setBackground(Color.red);
+                    btn_x2_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -426,11 +478,15 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
+                    endcordx = 3;
+                    endcordy = 4;
+                    btn_x3_y4.setBackground(Color.red);
+                }
+                else if (startcordx != 0 && endcordx != 0)
+                {
                     startcordy = 0;
                     startcordx = 0;
-                    endcordy = 3;
-                    endcordx = 4;
-                    btn_x3_y4.setBackground(Color.red);
+                    btn_x3_y4.setBackground(Color.WHITE);
                 }
                 else if (endcordx != 0)
                 {
@@ -452,10 +508,8 @@ public class Main extends JFrame {
                 }
                 else if (startcordx != 0 && endcordx == 0)
                 {
-                    startcordy = 0;
-                    startcordx = 0;
-                    endcordy = 4;
                     endcordx = 4;
+                    endcordy = 4;
                     btn_x4_y4.setBackground(Color.red);
                 }
                 else if (endcordx != 0)
@@ -464,6 +518,13 @@ public class Main extends JFrame {
                     endcordy = 0;
                     btn_x4_y4.setBackground(Color.WHITE);
                 }
+                else if (endcordx != 0)
+                {
+                    endcordx = 0;
+                    endcordy = 0;
+                    btn_x4_y4.setBackground(Color.WHITE);
+                }
+
             }
         });
 
