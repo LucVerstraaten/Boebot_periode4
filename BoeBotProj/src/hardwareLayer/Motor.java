@@ -145,7 +145,7 @@ public class Motor {
         }
     }
 
-    /*public static void TurnSeconds(int Direction, int time) {
+    public static void TurnSeconds(int Direction, int time) {
         // links
         if (Direction == 1) {
             s1.update(1450);
@@ -173,12 +173,14 @@ public class Motor {
             s2.update(1300);
             CurrentSpeed = 200;
         }
-    }*/
+    }
 
     public static void emergencyBrake() {
         s1.update(1500);
         s2.update(1500);
         CurrentSpeed = 0;
     }
+
+
 }
 
