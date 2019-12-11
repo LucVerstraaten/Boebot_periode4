@@ -1,6 +1,5 @@
 package communicationLayer;
 
-import TI.BoeBot;
 import hardwareLayer.*;
 
 import java.util.Random;
@@ -25,10 +24,10 @@ public class SpeakerControl extends Thread {
             case 5:Speaker.phase1(); Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); Speaker.phase1();
                 Speaker.phase1(); Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); Speaker.phase1();break;
             case 6:Speaker.phase2(); Speaker.phase1(); Speaker.phase2(); break;
+
         }
 
         Speaker.silence();
-        BoeBot.wait(2000);
 
     }
 }

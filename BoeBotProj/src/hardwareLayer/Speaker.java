@@ -7,7 +7,7 @@ import java.util.Random;
 public class Speaker {
 
     static int speakerPin = 3;
-    private static int duration = 2;// a static duarion for the sound
+    private static int duration = 1;// a static duarion for the sound
 
 
     public static void phase1()
@@ -16,12 +16,13 @@ public class Speaker {
 
         int k = random.nextInt(1000) + 1000;
         for (int i = 0; i <= (random.nextInt(1900) + 100); i++) {
-
-            BoeBot.freqOut(speakerPin, k + (-i * 2),random.nextInt(duration));
+            duration = random.nextInt(duration) +1;
+            BoeBot.freqOut(speakerPin, k + (-i * 2),duration);
         }
 
         for (int i = 0; i <= (random.nextInt(900) + 100); i++){
-                        BoeBot.freqOut(speakerPin, k + (i * 10), random.nextInt(duration));
+            duration = random.nextInt(duration) +1;
+                        BoeBot.freqOut(speakerPin, k + (i * 10), duration);
         }
     }
 
@@ -30,13 +31,13 @@ public class Speaker {
         Random random = new Random();
         int k = random.nextInt(1000) + 1000;
         for (int i = 0; i <= (random.nextInt(1900) + 100); i++) {
-
-            BoeBot.freqOut(speakerPin, k+(i*2), random.nextInt(duration));
+            duration = random.nextInt(duration) +1;
+            BoeBot.freqOut(speakerPin, k+(i*2),duration);
         }
 
         for (int i = 0; i <= (random.nextInt(900) + 100); i++){
-
-            BoeBot.freqOut(speakerPin, k + (-i * 10),random.nextInt(duration));
+            duration = random.nextInt(duration) +1;
+            BoeBot.freqOut(speakerPin, k + (-i * 10),duration);
         }
     }
 

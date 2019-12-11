@@ -1,19 +1,30 @@
+import TI.BoeBot;
 import communicationLayer.*;
+import org.omg.PortableServer.POAManagerPackage.State;
 
 public class RobotMain {
 
     public static void main(String[] args) {
 
+       // while(true)
+        //{break;}
+
         SpeakerControl speak = new SpeakerControl();
         LedControl led = new LedControl();
-        //while (true) {
+        speak.start();
+        led.speaking();
+        while (speak.getState() == Thread.State.WAITING) {
+            BoeBot.wait(1);
+        }
+        BoeBot.wait(2000);
+        while (true) {
 
-            speak.start();
-            led.speaking();
 
             FrameControl.achtje();
-            //BoeBot.wait(20000);
-        //}
+            BoeBot.wait(2000);
+
+
+        }
         //boolean state = true;
 
 

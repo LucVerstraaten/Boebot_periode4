@@ -29,7 +29,7 @@ public class Detectie {
      * @return
      */
     public static boolean obstacle(int distance) {
-        if (distance <= sonar.pulseEcho()) {
+        if (Sonar.pulseEcho() <= distance) {
             return true;
         }
         return false;

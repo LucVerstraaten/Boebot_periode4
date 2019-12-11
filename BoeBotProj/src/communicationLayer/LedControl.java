@@ -9,7 +9,7 @@ public class LedControl {
 
     public static void speaking() {
         Random ran = new Random();
-        Timer time = new Timer(1000);
+        Timer time = new Timer(2000);
 
         Boolean speak = true;
         while (speak) {
