@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends JFrame {
     private static Button btn_x1_y1 = new Button();
@@ -551,14 +552,14 @@ public class Main extends JFrame {
 
                     if(startcordx>endcordx) {
                         nextcordx = startcordx-1;
-                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,startcordy);
                         pos.setLocation(175+((startcordy-2)*75),150+((startcordx-2)*75));
                         p.addRoutePiece(pos);
                         startcordx = nextcordx;
                     }
                     if(startcordx<endcordx) {
                         nextcordx = startcordx+1;
-                        trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
+                        trans.commandTranslator(startcordx,startcordy,nextcordx,startcordy);
                         pos.setLocation(100 +((startcordy-1)*75),150+((startcordx-1)*75));
                         p.addRoutePiece(pos);
                         startcordx = nextcordx;
@@ -595,8 +596,9 @@ public class Main extends JFrame {
 
 
                 try {
+                    ArrayList<Integer> commands = trans.getCommands();
                     wifi.ConnectionSetup();
-                    wifi.Send(trans.getCommands());
+                    wifi.Send(commands);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
