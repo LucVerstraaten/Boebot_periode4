@@ -1,8 +1,8 @@
 package hardwareLayer;
 
-import TI.*;
+import TI.BoeBot;
+
 /**
- *
  * @author Luc Verstraaten
  */
 public class Sonar {

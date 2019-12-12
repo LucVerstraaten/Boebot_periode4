@@ -30,8 +30,7 @@ public class LedControl {
             //BoeBot.rgbSet(5,255,0,0); doesn't work
             BoeBot.rgbShow();
             BoeBot.wait(100);
-            if(time.timeout())
-            {
+            if (time.timeout()) {
                 BoeBot.rgbSet(0, 0, 0, 0);
                 BoeBot.rgbSet(1, 0, 0, 0);
                 BoeBot.rgbSet(2, 0, 0, 0);

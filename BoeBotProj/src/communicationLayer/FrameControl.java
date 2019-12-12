@@ -1,10 +1,9 @@
 package communicationLayer;
 
-import TI.*;
-import hardwareLayer.*;
+import TI.Timer;
+import hardwareLayer.Motor;
 
 /**
- *
  * @author Luc Verstraaten
  */
 public class FrameControl {
@@ -15,7 +14,6 @@ public class FrameControl {
     public static void Drive() {
         currentSpeed = 0;
     }
-
 
 
     public static void forward() {
@@ -29,6 +27,10 @@ public class FrameControl {
     public static void toTheRight() {
         mt.turnDegrees(90, 1);
         currentSpeed = 0;
+    }
+
+    public static void TurnSeconds(int Direction, int time) {
+        mt.TurnSeconds(Direction, time);
     }
 
     public static void toTheLeft() {
@@ -109,21 +111,21 @@ public class FrameControl {
 
     public static void forwardShort() {
         //if (Detectie.obstacle(2)) {
-            Timer timer = new Timer(1250);
-            timer.mark();
-            while (!timer.timeout()) {
-                forward();
-            }
+        Timer timer = new Timer(1250);
+        timer.mark();
+        while (!timer.timeout()) {
+            forward();
+        }
         //}
     }
 
     public static void forwardLong() {
         //if (Detectie.obstacle(2)) {
-            TI.Timer timer = new Timer(2500);
-            timer.mark();
-            while (!timer.timeout()) {
-                forward();
-            }
+        TI.Timer timer = new Timer(2500);
+        timer.mark();
+        while (!timer.timeout()) {
+            forward();
+        }
         //}
     }
 

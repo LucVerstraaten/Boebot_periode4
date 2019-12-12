@@ -1,20 +1,22 @@
 package hardwareLayer;
 
-import TI.*;
+import TI.SerialConnection;
 //import jssc.*;
+
 /**
- *
  * @author Luc Verstraaten
  */
 public class BluetoothModule {
     private static int command;
-    public BluetoothModule()
-    {
+
+    public BluetoothModule() {
 
     }
+
     static SerialConnection conn = new SerialConnection(115200);
-    public static int ReadBluetooth(){
-        if(conn.available() > 0){
+
+    public static int ReadBluetooth() {
+        if (conn.available() > 0) {
             command = conn.readByte();
         }
 
