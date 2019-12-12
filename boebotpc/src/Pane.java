@@ -10,6 +10,10 @@ public void addRoutePiece(RectangleRoute routePiece){
     routePieces.add(routePiece);
 }
 
+    public void clearRoutePiece(){
+        routePieces.clear();
+    }
+
 public void setColor(Color c){
     this.c = c;
 }

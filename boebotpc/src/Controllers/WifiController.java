@@ -10,7 +10,7 @@ public class WifiController {
     private static int port = 9876;
     public static Socket socket = new Socket();
 
-    public static void ConnectionSetup(String args[]) throws IOException, ClassNotFoundException{
+    public static void ConnectionSetup() throws IOException, ClassNotFoundException{
         //create the socket server object
         server = new ServerSocket(port);
         //keep listens indefinitely until receives 'exit' call or program terminates
