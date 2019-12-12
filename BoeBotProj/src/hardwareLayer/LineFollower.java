@@ -14,7 +14,7 @@ public class LineFollower {
     private boolean lineMiddle;
     private boolean lineRight;
     private ArrayList LineList;
-    private int DetectionValue = 1300; //wanneer deze waarde wordt overschreven ziet hij zwart
+    private int DetectionValue = 50; //wanneer deze waarde wordt overschreven ziet hij zwart
 
     public LineFollower() {
     }

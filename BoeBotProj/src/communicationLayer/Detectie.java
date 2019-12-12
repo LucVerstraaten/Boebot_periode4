@@ -1,7 +1,7 @@
 package communicationLayer;
 
 import TI.BoeBot;
-import hardwareLayer.BluetoothModule;
+
 import hardwareLayer.LineFollower;
 import hardwareLayer.Sonar;
 
@@ -12,7 +12,6 @@ import hardwareLayer.Sonar;
 public class Detectie {
 
     private static LineFollower LineSensors = new LineFollower();
-    private BluetoothModule btModule = new BluetoothModule();
     private static Boolean ldRight;
     private static Boolean ldMiddel;
     private static Boolean ldLeft;
@@ -50,20 +49,8 @@ public class Detectie {
         ldLeft = LineSensors.lineRight();
     }
 
-    /**
-     * method for reading the bloothtooth
-     *
-     * @return
-     */
-    public static int ReadBluetooth() {
-        command = BluetoothModule.ReadBluetooth();
-        if ((command > 0) && (command < 100)) {
 
-        } else {
-            command = 0;
-        }
-        return command;
-    }
+
 
     public static Boolean getLdMiddel() {
         return ldMiddel;
