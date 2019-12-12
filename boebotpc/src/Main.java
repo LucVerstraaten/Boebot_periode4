@@ -1,10 +1,12 @@
 import Controllers.BoebotController;
+import Controllers.WifiController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
+import java.io.IOException;
 
 public class Main extends JFrame {
     private static Button btn_x1_y1 = new Button();
@@ -24,16 +26,20 @@ public class Main extends JFrame {
     private static Button btn_x3_y4 = new Button();
     private static Button btn_x4_y4 = new Button();
     private static Button btn_Route = new Button();
+    private static Button btn_Send = new Button();
+    private static WifiController wifi = new WifiController();
     private static int startcordx = 0;
     private static int endcordx = 0;
     private static int startcordy = 0;
     private static int endcordy = 0;
+    private static BoebotController trans = new BoebotController();
 
     private static Main window = new Main();
     private  static Pane p = new Pane();
 
 
     public static void main(String args[]) {
+
 
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,7 +63,9 @@ public class Main extends JFrame {
         btn_x3_y4.setBounds(325,200,25,25);
         btn_x4_y4.setBounds(325,125,25,25);
         btn_Route.setBounds(500,500,100,50);
+        btn_Send.setBounds(600,500,100,50);
         btn_Route.setLabel("Bereken route");
+        btn_Send.setLabel("Send route");
 
         btn_x1_y1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -531,22 +539,28 @@ public class Main extends JFrame {
 
         btn_Route.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                BoebotController trans = new BoebotController();
+
                 int xlength = Math.abs(startcordx - endcordx);
                 int ylength = Math.abs(startcordy - endcordy);
                 int nextcordx =0;
                 int nextcordy =0;
+                p.clearRoutePiece();
                 while(xlength != 0)
                 {
                     RectangleRoute pos = new RectangleRoute(25,50);
 
                     if(startcordx>endcordx) {
-                        nextcordx = endcordx-1;
+                        nextcordx = startcordx-1;
                         trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
+                        pos.setLocation(175+((startcordy-2)*75),150+((startcordx-2)*75));
+                        p.addRoutePiece(pos);
+                        startcordx = nextcordx;
                     }
                     if(startcordx<endcordx) {
-                        nextcordx = endcordx+1;
+                        nextcordx = startcordx+1;
                         trans.commandTranslator(startcordx,startcordy,nextcordx,endcordy);
+                        pos.setLocation(100 +((startcordy-1)*75),150+((startcordx-1)*75));
+                        p.addRoutePiece(pos);
                         startcordx = nextcordx;
                         //addRoutePiece();
                     }
@@ -556,18 +570,18 @@ public class Main extends JFrame {
                 {
                     RectangleRoute pos = new RectangleRoute(50,25);
                     if(startcordy>endcordy) {
-                        nextcordy = endcordy-1;
+                        nextcordy = startcordy-1;
                         trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
-                        pos.setLocation(125+((startcordy-2)*50),350);
+                        pos.setLocation(125+((startcordy-2)*75),350 -((startcordx-1)*75));
                         p.addRoutePiece(pos);
                         startcordy = nextcordy;
                     }
-                    if(startcordy<endcordy) {
-                        nextcordy = endcordy+1;
+                    else if(startcordy<endcordy) {
+                        nextcordy = startcordy+1;
                         trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
-                        pos.setLocation(125+((startcordy-1)*50),350);
+                        pos.setLocation(125+((startcordy-1)*75),350 -((startcordx-1)*75));
+                        p.addRoutePiece(pos);
                         startcordy = nextcordy;
-                        //addRoutePiece();
                     }
                     ylength--;
                 }
@@ -576,6 +590,20 @@ public class Main extends JFrame {
             }
 
         });
+        btn_Send.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+
+
+                try {
+                    wifi.ConnectionSetup();
+                    wifi.Send(trans.getCommands());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            });
         window.add(btn_x1_y1);
         window.add(btn_x2_y1);
         window.add(btn_x3_y1);
@@ -593,6 +621,7 @@ public class Main extends JFrame {
         window.add(btn_x3_y4);
         window.add(btn_x4_y4);
         window.add(btn_Route);
+        window.add(btn_Send);
         window.add(p);
         window.setTitle("Frans ik heb vraag");
         window.setMinimumSize(new Dimension(1000,1000));
