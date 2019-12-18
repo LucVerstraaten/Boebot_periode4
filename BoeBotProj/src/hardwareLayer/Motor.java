@@ -1,8 +1,10 @@
 package hardwareLayer;
 
-import TI.*;
+import TI.BoeBot;
+import TI.Servo;
+import TI.Timer;
+
 /**
- *
  * @author Luc Verstraaten
  */
 public class Motor {
@@ -13,34 +15,30 @@ public class Motor {
     private static int CurrentSpeed;
 
     /**
-     *
-     * @param degrees amount of degrees you want to turn
+     * @param degrees   amount of degrees you want to turn
      * @param direction the derection you want to rutn to 1 right 2 left
      */
-    public static void turnDegrees(double degrees, int direction)
-    {
+    public static void turnDegrees(double degrees, int direction) {
         s1.update(1500);
         s2.update(1500);
         BoeBot.wait(10);
         CurrentSpeed = 0;
-        wait = (degrees/360.0) * 1575;
+        wait = (degrees / 360.0) * 1575;
 
 
-        if(direction == 1)
-        {
+        if (direction == 1) {
             s1.update(1600);
             s2.update(1600);
             CurrentSpeed = 100;
-        }
-        else if (direction == 2)
-        {
+        } else if (direction == 2) {
             s1.update(1400);
             s2.update(1400);
             CurrentSpeed = 100;
         }
-        Timer t1 = new Timer((int)wait);
+        Timer t1 = new Timer((int) wait);
         t1.mark();
-        while(!t1.timeout()){}
+        while (!t1.timeout()) {
+        }
 
         s1.update(1500);
         s2.update(1500);
@@ -51,15 +49,12 @@ public class Motor {
     /**
      * method for slowing dwon while riding forawrds
      */
-    public static void slowItDownForwards()
-    {
+    public static void slowItDownForwards() {
         System.out.println(s1.getPulseWidth());
-        if(s1.getPulseWidth() + 200 > 1500)
-        {
+        if (s1.getPulseWidth() + 200 > 1500) {
             int i = 80;
-            while (i  <= CurrentSpeed)
-            {
-                if(CurrentSpeed > 0){
+            while (i <= CurrentSpeed) {
+                if (CurrentSpeed > 0) {
                     i++;
                     s1.update((1500 - CurrentSpeed) + i);
                     s2.update((1500 + CurrentSpeed) - i);
@@ -76,14 +71,11 @@ public class Motor {
     /**
      * method for slowing down while riding backwards
      */
-    public static void slowItDownBackwards()
-    {
-        if(s1.getPulseWidth() - 200 < 1500)
-        {
+    public static void slowItDownBackwards() {
+        if (s1.getPulseWidth() - 200 < 1500) {
             int i = 80;
-            while (i <= CurrentSpeed)
-            {
-                if(CurrentSpeed > 0){
+            while (i <= CurrentSpeed) {
+                if (CurrentSpeed > 0) {
                     i++;
                     s1.update((1500 + CurrentSpeed) - i);
                     s2.update((1500 - CurrentSpeed) + i);
@@ -96,11 +88,9 @@ public class Motor {
         }
     }
 
-    public static void speedItUp()
-    {
+    public static void speedItUp() {
         int i = 0;
-        while (i  <= CurrentSpeed)
-        {
+        while (i <= CurrentSpeed) {
             i++;
             s1.update((1300 + CurrentSpeed) - i);
             s2.update((1700 - CurrentSpeed) + i);
@@ -111,8 +101,7 @@ public class Motor {
 
     public static void speedInRev() {
         int i = 0;
-        while (i  <= CurrentSpeed)
-        {
+        while (i <= CurrentSpeed) {
             i++;
             s1.update((1700 - CurrentSpeed) + i);
             s2.update((1300 + CurrentSpeed) - i);
@@ -121,11 +110,10 @@ public class Motor {
         CurrentSpeed = 200;
     }
 
-    public static void moveForward()
-    {
-        if(CurrentSpeed == 200){
-            s1.update(1300);
-            s2.update(1700);
+    public static void moveForward() {
+        if (CurrentSpeed == 200) {
+            s1.update(1700);
+            s2.update(1300);
             CurrentSpeed = 200;
         } else {
             speedItUp();
@@ -133,9 +121,8 @@ public class Motor {
         }
     }
 
-    public static void moveBackward()
-    {
-        if (CurrentSpeed == 200){
+    public static void moveBackward() {
+        if (CurrentSpeed == 200) {
             s1.update(1700);
             s2.update(1300);
             CurrentSpeed = 200;
@@ -146,33 +133,27 @@ public class Motor {
     }
 
     public static void TurnSeconds(int Direction, int time) {
-        // links
-        if (Direction == 1) {
-            s1.update(1450);
-            s2.update(1450);
-            CurrentSpeed = 200;
+        if (Direction== 2)//links
+        {
+            s2.update(1475);
+            s1.update(1475);
+
         }
 
-        // rechts
-        if (Direction == 2) {
-            s1.update(1550);
-            s2.update(1550);
-            CurrentSpeed = 200;
+        if (Direction == 1)//rechts
+        {
+            s2.update(1525);
+            s1.update(1525);
+
         }
 
-        //forawrd
-        if (Direction == 3) {
-            s1.update(1410);
-            s2.update(1590);
-            CurrentSpeed = 200;
+        if (Direction ==3)//vooruit
+        {
+            s2.update(1475);
+            s1.update(1525);
+
         }
 
-        //backward
-        if (Direction == 4) {
-            s1.update(1700);
-            s2.update(1300);
-            CurrentSpeed = 200;
-        }
     }
 
     public static void emergencyBrake() {
