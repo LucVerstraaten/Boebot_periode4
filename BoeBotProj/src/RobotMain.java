@@ -1,6 +1,7 @@
 import TI.BoeBot;
 import communicationLayer.Detectie;
 import communicationLayer.FrameControl;
+import hardwareLayer.Sonar;
 import hardwareLayer.WifiCHip;
 
 import java.io.IOException;
@@ -10,19 +11,24 @@ public class RobotMain {
 
     private static ArrayList<Integer> commands;
     private static boolean driving = false;
-
     public static void main(String[] args) {
         while (true) {
-            try {
-                WifiCHip.ConnectionSetup();
-                commands = WifiCHip.Receive();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+
+            BoeBot.wait(50);
+
+            while (!Detectie.obstacle(5))
+            {
+                try {
+                    WifiCHip.ConnectionSetup();
+                    commands = WifiCHip.Receive();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             System.out.println("hoi");
             if (commands != null) {
                 for (Integer c : commands) {
@@ -59,20 +65,26 @@ public class RobotMain {
                                     FrameControl.TurnSeconds(3, 10);
                                 }
                                 if (Detectie.getLdRight() && Detectie.getLdLeft() && Detectie.getLdMiddel()) {
-                                    //BoeBot.wait(100);
+                                    BoeBot.wait(1000);
                                     FrameControl.emergencyBrake();
                                     driving = false;
                                 }
                                 break;
-                            case 2:
-                                // om keren
-                                FrameControl.toTheRight();
-                                break;
                             case 3:
-                                FrameControl.toTheLeft();
+                                Detectie.readLinesensors();
+                                if ((Detectie.getLdMiddel() == true)) {
+                                    //BoeBot.wait();
+                                    FrameControl.emergencyBrake();
+                                    driving = false;
+                                }
                                 break;
                             case 4:
-                                FrameControl.toTheRight();
+                                Detectie.readLinesensors();
+                                if ((Detectie.getLdMiddel() == true)) {
+                                    //BoeBot.wait();
+                                    FrameControl.emergencyBrake();
+                                    driving = false;
+                                }
                                 break;
                         }
                     }
@@ -80,6 +92,8 @@ public class RobotMain {
                 //commands = null;
             }
             BoeBot.wait(100);
+        }
+        BoeBot.wait(1000);
         }
         /*SpeakerControl speak = new SpeakerControl();
         LedControl led = new LedControl();

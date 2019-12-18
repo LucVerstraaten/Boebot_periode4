@@ -1,4 +1,5 @@
 import Controllers.BoebotController;
+import Controllers.ButtonController;
 import Controllers.WifiController;
 
 import javax.swing.*;
@@ -10,30 +11,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends JFrame {
-    private static Button btn_x1_y1 = new Button();
-    private static Button btn_x2_y1 = new Button();
-    private static Button btn_x3_y1 = new Button();
-    private static Button btn_x4_y1 = new Button();
-    private static Button btn_x1_y2 = new Button();
-    private static Button btn_x2_y2 = new Button();
-    private static Button btn_x3_y2 = new Button();
-    private static Button btn_x4_y2 = new Button();
-    private static Button btn_x1_y3 = new Button();
-    private static Button btn_x2_y3 = new Button();
-    private static Button btn_x3_y3 = new Button();
-    private static Button btn_x4_y3 = new Button();
-    private static Button btn_x1_y4 = new Button();
-    private static Button btn_x2_y4 = new Button();
-    private static Button btn_x3_y4 = new Button();
-    private static Button btn_x4_y4 = new Button();
-    private static Button btn_Route = new Button();
-    private static Button btn_Send = new Button();
+    private static JButton btn_x1_y1 = new JButton();
+    private static JButton btn_x2_y1 = new JButton();
+    private static JButton btn_x3_y1 = new JButton();
+    private static JButton btn_x4_y1 = new JButton();
+    private static JButton btn_x1_y2 = new JButton();
+    private static JButton btn_x2_y2 = new JButton();
+    private static JButton btn_x3_y2 = new JButton();
+    private static JButton btn_x4_y2 = new JButton();
+    private static JButton btn_x1_y3 = new JButton();
+    private static JButton btn_x2_y3 = new JButton();
+    private static JButton btn_x3_y3 = new JButton();
+    private static JButton btn_x4_y3 = new JButton();
+    private static JButton btn_x1_y4 = new JButton();
+    private static JButton btn_x2_y4 = new JButton();
+    private static JButton btn_x3_y4 = new JButton();
+    private static JButton btn_x4_y4 = new JButton();
+    private static JButton btn_Route = new JButton();
+    private static JButton btn_Send = new JButton();
+    private static JButton btn_reset= new JButton();
     private static WifiController wifi = new WifiController();
-    private static int startcordx = 0;
-    private static int endcordx = 0;
-    private static int startcordy = 0;
-    private static int endcordy = 0;
+
     private static BoebotController trans = new BoebotController();
+    private static ButtonController bc = new ButtonController();
 
     private static Main window = new Main();
     private  static Pane p = new Pane();
@@ -65,484 +65,33 @@ public class Main extends JFrame {
         btn_x4_y4.setBounds(325,125,25,25);
         btn_Route.setBounds(500,500,100,50);
         btn_Send.setBounds(600,500,100,50);
-        btn_Route.setLabel("Bereken route");
-        btn_Send.setLabel("Send route");
+        btn_reset.setBounds(700,500,100,50);
+        btn_Route.setText("Bereken route");
+        btn_Send.setText("Send route");
+        btn_reset.setText("reset route");
 
-        btn_x1_y1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 1;
-                    startcordy = 1;
-                    btn_x1_y1.setBackground(Color.GREEN);
-
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-
-                    endcordy = 1;
-                    endcordx = 1;
-                    btn_x1_y1.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x1_y1.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x1_y1.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x2_y1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 2;
-                    startcordy = 1;
-                    btn_x2_y1.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 2;
-                    endcordy = 1;
-                    btn_x2_y1.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x2_y1.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x2_y1.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x3_y1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 3;
-                    startcordy = 1;
-                    btn_x3_y1.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 3;
-                    endcordy = 1;
-                    btn_x3_y1.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x3_y1.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x3_y1.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x4_y1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 4;
-                    startcordy = 1;
-                    btn_x4_y1.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 4;
-                    endcordy = 1;
-                    btn_x4_y1.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x4_y1.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x4_y1.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x1_y2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 1;
-                    startcordy = 2;
-                    btn_x1_y2.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 1;
-                    endcordy = 2;
-                    btn_x1_y2.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x1_y2.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x1_y2.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x2_y2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 2;
-                    startcordy = 2;
-                    btn_x2_y2.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 2;
-                    endcordy = 2;
-                    btn_x2_y2.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x2_y2.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x2_y2.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x3_y2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 3;
-                    startcordy = 2;
-                    btn_x3_y2.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 3;
-                    endcordy = 2;
-                    btn_x3_y2.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x3_y2.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x3_y2.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x4_y2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 4;
-                    startcordy = 2;
-                    btn_x4_y2.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 4;
-                    endcordy = 2;
-                    btn_x4_y2.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x4_y2.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x4_y2.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x1_y3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 1;
-                    startcordy = 3;
-                    btn_x1_y3.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 1;
-                    endcordy = 3;
-                    btn_x1_y3.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x1_y3.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x1_y3.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x2_y3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 2;
-                    startcordy = 3;
-                    btn_x2_y3.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 2;
-                    endcordy = 3;
-                    btn_x2_y3.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x2_y3.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x2_y3.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x3_y3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 3;
-                    startcordy = 3;
-                    btn_x3_y3.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 3;
-                    endcordy = 3;
-                    btn_x3_y3.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x3_y3.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x3_y3.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x4_y3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 4;
-                    startcordy = 3;
-                    btn_x4_y3.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 4;
-                    endcordy = 3;
-                    btn_x4_y3.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x4_y3.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x4_y3.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x1_y4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 1;
-                    startcordy = 4;
-                    btn_x1_y4.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 1;
-                    endcordy = 4;
-                    btn_x1_y4.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x1_y4.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x1_y4.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-        btn_x2_y4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 2;
-                    startcordy = 4;
-                    btn_x2_y4.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 2;
-                    endcordy = 4;
-                    btn_x2_y4.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x2_y4.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x2_y4.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-
-        btn_x3_y4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 3;
-                    startcordy = 4;
-                    btn_x3_y4.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 3;
-                    endcordy = 4;
-                    btn_x3_y4.setBackground(Color.red);
-                }
-                else if (startcordx != 0 && endcordx != 0)
-                {
-                    startcordy = 0;
-                    startcordx = 0;
-                    btn_x3_y4.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x3_y4.setBackground(Color.WHITE);
-                }
-            }
-        });
-
-
-        btn_x4_y4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                if (startcordx == 0 && endcordx == 0)
-                {
-                    startcordx = 4;
-                    startcordy = 4;
-                    btn_x4_y4.setBackground(Color.GREEN);
-                }
-                else if (startcordx != 0 && endcordx == 0)
-                {
-                    endcordx = 4;
-                    endcordy = 4;
-                    btn_x4_y4.setBackground(Color.red);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x4_y4.setBackground(Color.WHITE);
-                }
-                else if (endcordx != 0)
-                {
-                    endcordx = 0;
-                    endcordy = 0;
-                    btn_x4_y4.setBackground(Color.WHITE);
-                }
-
-            }
-        });
-
+        bc.addActionListener(trans,btn_x1_y1,1,1);
+        bc.addActionListener(trans,btn_x2_y1,2,1);
+        bc.addActionListener(trans,btn_x3_y1,3,1);
+        bc.addActionListener(trans,btn_x4_y1,4,1);
+        bc.addActionListener(trans,btn_x1_y2,1,2);
+        bc.addActionListener(trans,btn_x2_y2,2,2);
+        bc.addActionListener(trans,btn_x3_y2,3,2);
+        bc.addActionListener(trans,btn_x4_y2,4,2);
+        bc.addActionListener(trans,btn_x1_y3,1,3);
+        bc.addActionListener(trans,btn_x2_y3,2,3);
+        bc.addActionListener(trans,btn_x3_y3,3,3);
+        bc.addActionListener(trans,btn_x4_y3,4,3);
+        bc.addActionListener(trans,btn_x1_y4,1,4);
+        bc.addActionListener(trans,btn_x2_y4,2,4);
+        bc.addActionListener(trans,btn_x3_y4,3,4);
+        bc.addActionListener(trans,btn_x4_y4,4,4);
 
         btn_Route.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
-                int xlength = Math.abs(startcordx - endcordx);
-                int ylength = Math.abs(startcordy - endcordy);
+                int xlength = Math.abs(trans.getStartcordx() - trans.getEndcordx());
+                int ylength = Math.abs(trans.getStartcordy() - trans.getEndcordy());
                 int nextcordx =0;
                 int nextcordy =0;
                 p.clearRoutePiece();
@@ -550,19 +99,19 @@ public class Main extends JFrame {
                 {
                     RectangleRoute pos = new RectangleRoute(25,50);
 
-                    if(startcordx>endcordx) {
-                        nextcordx = startcordx-1;
-                        trans.commandTranslator(startcordx,startcordy,nextcordx,startcordy);
-                        pos.setLocation(175+((startcordy-2)*75),150+((startcordx-2)*75));
+                    if(trans.getStartcordx()>trans.getEndcordx()) {
+                        nextcordx = trans.getStartcordx()-1;
+                        trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),nextcordx,trans.getStartcordy());
+                        pos.setLocation(175+((trans.getStartcordy()-2)*75),150+((trans.getStartcordx()-2)*75));
                         p.addRoutePiece(pos);
-                        startcordx = nextcordx;
+                        trans.setStartcordx(nextcordx);
                     }
-                    if(startcordx<endcordx) {
-                        nextcordx = startcordx+1;
-                        trans.commandTranslator(startcordx,startcordy,nextcordx,startcordy);
-                        pos.setLocation(100 +((startcordy-1)*75),150+((startcordx-1)*75));
+                    if(trans.getStartcordx()<trans.getEndcordx()) {
+                        nextcordx = trans.getStartcordx()+1;
+                        trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),nextcordx,trans.getStartcordy());
+                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),150+((trans.getStartcordx()-1)*75));
                         p.addRoutePiece(pos);
-                        startcordx = nextcordx;
+                        trans.setStartcordx(nextcordx);
                         //addRoutePiece();
                     }
                     xlength--;
@@ -570,24 +119,26 @@ public class Main extends JFrame {
                 while(ylength != 0)
                 {
                     RectangleRoute pos = new RectangleRoute(50,25);
-                    if(startcordy>endcordy) {
-                        nextcordy = startcordy-1;
-                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
-                        pos.setLocation(125+((startcordy-2)*75),350 -((startcordx-1)*75));
+                    if(trans.getStartcordy()>trans.getEndcordy()) {
+                        nextcordy = trans.getStartcordy()-1;
+                        trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
+                        pos.setLocation(125+((trans.getStartcordy()-2)*75),350 -((trans.getStartcordx()-1)*75));
                         p.addRoutePiece(pos);
-                        startcordy = nextcordy;
+                        trans.setStartcordy(nextcordy);
                     }
-                    else if(startcordy<endcordy) {
-                        nextcordy = startcordy+1;
-                        trans.commandTranslator(startcordx,startcordy,startcordx,nextcordy);
-                        pos.setLocation(125+((startcordy-1)*75),350 -((startcordx-1)*75));
+                    else if(trans.getStartcordy()<trans.getEndcordy()) {
+                        nextcordy = trans.getStartcordy()+1;
+                        trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
+                        pos.setLocation(125+((trans.getStartcordy()-1)*75),350 -((trans.getStartcordx()-1)*75));
                         p.addRoutePiece(pos);
-                        startcordy = nextcordy;
+                        trans.setStartcordy(nextcordy);
                     }
                     ylength--;
                 }
 
                 p.repaint();
+                btn_x1_y1.updateUI();
+
             }
 
         });
@@ -606,6 +157,32 @@ public class Main extends JFrame {
                 }
             }
             });
+        btn_reset.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                bc.resetPoint(btn_x1_y1);
+                bc.resetPoint(btn_x2_y1);
+                bc.resetPoint(btn_x3_y1);
+                bc.resetPoint(btn_x4_y1);
+                bc.resetPoint(btn_x1_y2);
+                bc.resetPoint(btn_x2_y2);
+                bc.resetPoint(btn_x3_y2);
+                bc.resetPoint(btn_x4_y2);
+                bc.resetPoint(btn_x1_y3);
+                bc.resetPoint(btn_x2_y3);
+                bc.resetPoint(btn_x3_y3);
+                bc.resetPoint(btn_x4_y3);
+                bc.resetPoint(btn_x1_y4);
+                bc.resetPoint(btn_x2_y4);
+                bc.resetPoint(btn_x3_y4);
+                bc.resetPoint(btn_x4_y4);
+                trans.clearCommand();
+                p.clearRoutePiece();
+                p.repaint();
+
+
+            }
+        });
+
         window.add(btn_x1_y1);
         window.add(btn_x2_y1);
         window.add(btn_x3_y1);
@@ -624,6 +201,7 @@ public class Main extends JFrame {
         window.add(btn_x4_y4);
         window.add(btn_Route);
         window.add(btn_Send);
+        window.add(btn_reset);
         window.add(p);
         window.setTitle("Frans ik heb vraag");
         window.setMinimumSize(new Dimension(1000,1000));
@@ -633,4 +211,6 @@ public class Main extends JFrame {
         window.setVisible(true);
 
     }
+
+
 }

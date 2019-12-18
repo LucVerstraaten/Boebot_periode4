@@ -133,33 +133,27 @@ public class Motor {
     }
 
     public static void TurnSeconds(int Direction, int time) {
-        // links
-        if (Direction == 1) {
-            s1.update(1450);
-            s2.update(1450);
-            CurrentSpeed = 200;
+        if (Direction== 2)//links
+        {
+            s2.update(1475);
+            s1.update(1475);
+
         }
 
-        // rechts
-        if (Direction == 2) {
-            s1.update(1550);
-            s2.update(1550);
-            CurrentSpeed = 200;
+        if (Direction == 1)//rechts
+        {
+            s2.update(1525);
+            s1.update(1525);
+
         }
 
-        //forawrd
-        if (Direction == 3) {
-            s2.update(1410);
-            s1.update(1590);
-            CurrentSpeed = 200;
+        if (Direction ==3)//vooruit
+        {
+            s2.update(1475);
+            s1.update(1525);
+
         }
 
-        //backward
-        if (Direction == 4) {
-            s1.update(1700);
-            s2.update(1300);
-            CurrentSpeed = 200;
-        }
     }
 
     public static void emergencyBrake() {
