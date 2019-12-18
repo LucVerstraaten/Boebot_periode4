@@ -26,9 +26,6 @@ public class Main extends JFrame {
     private static JButton btn_x2_y4 = new JButton();
     private static JButton btn_x3_y4 = new JButton();
     private static JButton btn_x4_y4 = new JButton();
-    private static JButton btn_Route = new JButton();
-    private static JButton btn_Send = new JButton();
-    private static JButton btn_reset= new JButton();
     private static Button btn_x5_y1 = new Button();
     private static Button btn_x5_y2 = new Button();
     private static Button btn_x5_y3 = new Button();
@@ -53,6 +50,10 @@ public class Main extends JFrame {
     private static Button btn_x3_y8 = new Button();
     private static Button btn_x4_y8 = new Button();
     private static Button btn_x5_y8 = new Button();
+    private static JButton btn_Route = new JButton();
+    private static JButton btn_Send = new JButton();
+    private static JButton btn_reset= new JButton();
+
     private static WifiController wifi = new WifiController();
 
     private static BoebotController trans = new BoebotController();
@@ -160,29 +161,34 @@ public class Main extends JFrame {
                         p.addRoutePiece(pos);
                         trans.setStartcordx(nextcordx);
                     }
+                    else if(trans.getStartcordx()<trans.getEndcordx())
+                    {
                         nextcordx = trans.getStartcordx()+1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),nextcordx,trans.getStartcordy());
-                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),375-((trans.getStartcordx()*75-75));
+                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),375-((trans.getStartcordx()*75-75)));
                         p.addRoutePiece(pos);
                         trans.setStartcordx(nextcordx);
                         //addRoutePiece();
                     }
                     xlength--;
+
                 }
                 while(ylength != 0)
                 {
                     RectangleRoute pos = new RectangleRoute(50,25);
+                    if(trans.getStartcordy()>trans.getEndcordy()) {
                         nextcordy = trans.getStartcordy()-1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((startcordy-2)*75),425 -((startcordx-1)*75));
-                    if(trans.getStartcordy()>trans.getEndcordy()) {
+                        pos.setLocation(125+((trans.getStartcordy()-2)*75),425 -((trans.getStartcordx()-1)*75));
+
                         p.addRoutePiece(pos);
                         trans.setStartcordy(nextcordy);
                     }
+                    else if(trans.getStartcordy()<trans.getEndcordy()) {
                         nextcordy = trans.getStartcordy()+1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((startcordy-1)*75),425 -((startcordx-1)*75));
-                    else if(trans.getStartcordy()<trans.getEndcordy()) {
+                        pos.setLocation(125+((trans.getStartcordy()-1)*75),425 -((trans.getStartcordx()-1)*75));
+
                         p.addRoutePiece(pos);
                         trans.setStartcordy(nextcordy);
                     }
