@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,6 +29,30 @@ public class Main extends JFrame {
     private static JButton btn_Route = new JButton();
     private static JButton btn_Send = new JButton();
     private static JButton btn_reset= new JButton();
+    private static Button btn_x5_y1 = new Button();
+    private static Button btn_x5_y2 = new Button();
+    private static Button btn_x5_y3 = new Button();
+    private static Button btn_x5_y4 = new Button();
+    private static Button btn_x1_y5 = new Button();
+    private static Button btn_x2_y5 = new Button();
+    private static Button btn_x3_y5 = new Button();
+    private static Button btn_x5_y5 = new Button();
+    private static Button btn_x4_y5 = new Button();
+    private static Button btn_x1_y6 = new Button();
+    private static Button btn_x2_y6 = new Button();
+    private static Button btn_x3_y6 = new Button();
+    private static Button btn_x4_y6 = new Button();
+    private static Button btn_x5_y6 = new Button();
+    private static Button btn_x1_y7 = new Button();
+    private static Button btn_x2_y7 = new Button();
+    private static Button btn_x3_y7 = new Button();
+    private static Button btn_x4_y7 = new Button();
+    private static Button btn_x5_y7 = new Button();
+    private static Button btn_x1_y8 = new Button();
+    private static Button btn_x2_y8 = new Button();
+    private static Button btn_x3_y8 = new Button();
+    private static Button btn_x4_y8 = new Button();
+    private static Button btn_x5_y8 = new Button();
     private static WifiController wifi = new WifiController();
 
     private static BoebotController trans = new BoebotController();
@@ -46,23 +69,54 @@ public class Main extends JFrame {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+        btn_x1_y1.setBounds(100,425,25,25);
+        btn_x2_y1.setBounds(100,350,25,25);
+        btn_x3_y1.setBounds(100,275,25,25);
+        btn_x4_y1.setBounds(100,200,25,25);
+        btn_x5_y1.setBounds(100,125,25,25);
 
-        btn_x1_y1.setBounds(100,350,25,25);
-        btn_x2_y1.setBounds(100,275,25,25);
-        btn_x3_y1.setBounds(100,200,25,25);
-        btn_x4_y1.setBounds(100,125,25,25);
-        btn_x1_y2.setBounds(175,350,25,25);
-        btn_x2_y2.setBounds(175,275,25,25);
-        btn_x3_y2.setBounds(175,200,25,25);
-        btn_x4_y2.setBounds(175,125,25,25);
-        btn_x1_y3.setBounds(250,350,25,25);
-        btn_x2_y3.setBounds(250,275,25,25);
-        btn_x3_y3.setBounds(250,200,25,25);
-        btn_x4_y3.setBounds(250,125,25,25);
-        btn_x1_y4.setBounds(325,350,25,25);
-        btn_x2_y4.setBounds(325,275,25,25);
-        btn_x3_y4.setBounds(325,200,25,25);
-        btn_x4_y4.setBounds(325,125,25,25);
+        btn_x1_y2.setBounds(175,425,25,25);
+        btn_x2_y2.setBounds(175,350,25,25);
+        btn_x3_y2.setBounds(175,275,25,25);
+        btn_x4_y2.setBounds(175,200,25,25);
+        btn_x5_y2.setBounds(175,125,25,25);
+
+        btn_x1_y3.setBounds(250,425,25,25);
+        btn_x2_y3.setBounds(250,350,25,25);
+        btn_x3_y3.setBounds(250,275,25,25);
+        btn_x4_y3.setBounds(250,200,25,25);
+        btn_x5_y3.setBounds(250,125,25,25);
+
+        btn_x1_y4.setBounds(325,425,25,25);
+        btn_x2_y4.setBounds(325,350,25,25);
+        btn_x3_y4.setBounds(325,275,25,25);
+        btn_x4_y4.setBounds(325,200,25,25);
+        btn_x5_y4.setBounds(325,125,25,25);
+
+        btn_x1_y5.setBounds(400,425,25,25);
+        btn_x2_y5.setBounds(400,350,25,25);
+        btn_x3_y5.setBounds(400,275,25,25);
+        btn_x4_y5.setBounds(400,200,25,25);
+        btn_x5_y5.setBounds(400,125,25,25);
+
+        btn_x1_y6.setBounds(475,425,25,25);
+        btn_x2_y6.setBounds(475,350,25,25);
+        btn_x3_y6.setBounds(475,275,25,25);
+        btn_x4_y6.setBounds(475,200,25,25);
+        btn_x5_y6.setBounds(475,125,25,25);
+
+        btn_x1_y7.setBounds(550,425,25,25);
+        btn_x2_y7.setBounds(550,350,25,25);
+        btn_x3_y7.setBounds(550,275,25,25);
+        btn_x4_y7.setBounds(550,200,25,25);
+        btn_x5_y7.setBounds(550,125,25,25);
+
+        btn_x1_y8.setBounds(625,425,25,25);
+        btn_x2_y8.setBounds(625,350,25,25);
+        btn_x3_y8.setBounds(625,275,25,25);
+        btn_x4_y8.setBounds(625,200,25,25);
+        btn_x5_y8.setBounds(625,125,25,25);
+
         btn_Route.setBounds(500,500,100,50);
         btn_Send.setBounds(600,500,100,50);
         btn_reset.setBounds(700,500,100,50);
@@ -106,10 +160,9 @@ public class Main extends JFrame {
                         p.addRoutePiece(pos);
                         trans.setStartcordx(nextcordx);
                     }
-                    if(trans.getStartcordx()<trans.getEndcordx()) {
                         nextcordx = trans.getStartcordx()+1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),nextcordx,trans.getStartcordy());
-                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),150+((trans.getStartcordx()-1)*75));
+                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),375-((trans.getStartcordx()*75-75));
                         p.addRoutePiece(pos);
                         trans.setStartcordx(nextcordx);
                         //addRoutePiece();
@@ -119,17 +172,17 @@ public class Main extends JFrame {
                 while(ylength != 0)
                 {
                     RectangleRoute pos = new RectangleRoute(50,25);
-                    if(trans.getStartcordy()>trans.getEndcordy()) {
                         nextcordy = trans.getStartcordy()-1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((trans.getStartcordy()-2)*75),350 -((trans.getStartcordx()-1)*75));
+                        pos.setLocation(125+((startcordy-2)*75),425 -((startcordx-1)*75));
+                    if(trans.getStartcordy()>trans.getEndcordy()) {
                         p.addRoutePiece(pos);
                         trans.setStartcordy(nextcordy);
                     }
-                    else if(trans.getStartcordy()<trans.getEndcordy()) {
                         nextcordy = trans.getStartcordy()+1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((trans.getStartcordy()-1)*75),350 -((trans.getStartcordx()-1)*75));
+                        pos.setLocation(125+((startcordy-1)*75),425 -((startcordx-1)*75));
+                    else if(trans.getStartcordy()<trans.getEndcordy()) {
                         p.addRoutePiece(pos);
                         trans.setStartcordy(nextcordy);
                     }
@@ -187,18 +240,50 @@ public class Main extends JFrame {
         window.add(btn_x2_y1);
         window.add(btn_x3_y1);
         window.add(btn_x4_y1);
+        window.add(btn_x5_y1);
+
         window.add(btn_x1_y2);
         window.add(btn_x2_y2);
         window.add(btn_x3_y2);
         window.add(btn_x4_y2);
+        window.add(btn_x5_y2);
+
         window.add(btn_x1_y3);
         window.add(btn_x2_y3);
         window.add(btn_x3_y3);
         window.add(btn_x4_y3);
+        window.add(btn_x5_y3);
+
         window.add(btn_x1_y4);
         window.add(btn_x2_y4);
         window.add(btn_x3_y4);
         window.add(btn_x4_y4);
+        window.add(btn_x5_y4);
+
+        window.add(btn_x1_y5);
+        window.add(btn_x2_y5);
+        window.add(btn_x3_y5);
+        window.add(btn_x4_y5);
+        window.add(btn_x5_y5);
+
+        window.add(btn_x1_y6);
+        window.add(btn_x2_y6);
+        window.add(btn_x3_y6);
+        window.add(btn_x4_y6);
+        window.add(btn_x5_y6);
+
+        window.add(btn_x1_y7);
+        window.add(btn_x2_y7);
+        window.add(btn_x3_y7);
+        window.add(btn_x4_y7);
+        window.add(btn_x5_y7);
+
+        window.add(btn_x1_y8);
+        window.add(btn_x2_y8);
+        window.add(btn_x3_y8);
+        window.add(btn_x4_y8);
+        window.add(btn_x5_y8);
+
         window.add(btn_Route);
         window.add(btn_Send);
         window.add(btn_reset);
