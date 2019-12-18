@@ -1,25 +1,31 @@
 package Controllers;
 
+import Models.Blockade;
+import Models.RectangleRoute;
+import View.Pane;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import Models.RectangleRoute;
-import View.Pane;
+import java.util.ArrayList;
 
 
 public class ButtonController {
 
-    private static boolean start=false;
-    private static boolean end=false;
+    private static boolean start = false;
+    private static boolean end = false;
+    private static BlockadeController blockade = new BlockadeController();
+    private static int xlength = 0;
+    private static int ylength = 0;
 
     public void StartPoint(JButton btn) {
         try {
             btn.setIcon(null);
             Image img = ImageIO.read(new FileInputStream("resources/r2-d2.jpg"));
-            Image newimg = img.getScaledInstance( 25, 25,  java.awt.Image.SCALE_SMOOTH );
+            Image newimg = img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
             btn.setIcon(new ImageIcon(newimg));
         } catch (Exception ex) {
             System.out.println(ex);
@@ -30,7 +36,7 @@ public class ButtonController {
         try {
             btn.setIcon(null);
             Image img = ImageIO.read(new FileInputStream("resources/falcon.jpg"));
-            Image newimg = img.getScaledInstance( 25, 25,  java.awt.Image.SCALE_SMOOTH );
+            Image newimg = img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
             btn.setIcon(new ImageIcon(newimg));
         } catch (Exception ex) {
             System.out.println(ex);
@@ -71,65 +77,135 @@ public class ButtonController {
         });
     }
 
-    public void addRouteActionListener(BoebotController boc, JButton btn, Pane p)
-    {
+    public void addRouteActionListener(BoebotController boc, JButton btn, Pane p) {
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
-                int xlength = Math.abs(boc.getStartcordx() - boc.getEndcordx());
-                int ylength = Math.abs(boc.getStartcordy() - boc.getEndcordy());
-                int nextcordx =0;
-                int nextcordy =0;
+                ArrayList<Blockade> blockades = new ArrayList<>();
+                xlength = Math.abs(boc.getStartcordx() - boc.getEndcordx());
+                ylength = Math.abs(boc.getStartcordy() - boc.getEndcordy());
+                int nextcordx = 0;
+                int nextcordy = 0;
+                Boolean block = false;
                 p.clearRoutePiece();
-                while(xlength != 0)
-                {
-                    RectangleRoute pos = new RectangleRoute(25,50);
+                while (xlength != 0) {
 
-                    if(boc.getStartcordx()>boc.getEndcordx()) {
-                        nextcordx = boc.getStartcordx()-1;
-                        boc.commandTranslator(boc.getStartcordx(),boc.getStartcordy(),nextcordx,boc.getStartcordy());
-                        pos.setLocation(175+((boc.getStartcordy()-2)*75),150+((boc.getStartcordx()-2)*75));
-                        p.addRoutePiece(pos);
-                        boc.setStartcordx(nextcordx);
+
+                    if (boc.getStartcordx() > boc.getEndcordx()) {
+                        nextcordx = boc.getStartcordx() - 1;
+                        for (Blockade b : blockades) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getEndcordx(), boc.getStartcordy(), boc.getStartcordy())) {
+                                block = true;
+                            }
+                        }
+                        if (!block) {
+                            xAxis(boc, nextcordx, p, true);
+
+                        } else {
+                            if (boc.getStartcordy() > boc.getEndcordy()) {
+                                nextcordy = boc.getStartcordy() - 1;
+                                yAxis(boc, nextcordy, p, true);
+                            } else if (boc.getStartcordy() < boc.getEndcordy()) {
+                                nextcordy = boc.getStartcordy() + 1;
+                                yAxis(boc, nextcordy, p, false);
+                            }
+                        }
+                    } else if (boc.getStartcordx() < boc.getEndcordx()) {
+                        nextcordx = boc.getStartcordx() + 1;
+                        for (Blockade b : blockades) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getEndcordx(), boc.getStartcordy(), boc.getStartcordy())) {
+                                block = true;
+                            }
+                        }
+                        if (!block) {
+                            xAxis(boc, nextcordx, p, false);
+                        } else {
+                            if (boc.getStartcordy() > boc.getEndcordy()) {
+                                nextcordy = boc.getStartcordy() - 1;
+                                yAxis(boc, nextcordy, p, true);
+                            } else if (boc.getStartcordy() < boc.getEndcordy()) {
+                                nextcordy = boc.getStartcordy() + 1;
+                                yAxis(boc, nextcordy, p, false);
+                            }
+                        }
                     }
-                    else if(boc.getStartcordx()<boc.getEndcordx())
-                    {
-                        nextcordx = boc.getStartcordx()+1;
-                        boc.commandTranslator(boc.getStartcordx(),boc.getStartcordy(),nextcordx,boc.getStartcordy());
-                        pos.setLocation(100 +((boc.getStartcordy()-1)*75),375-((boc.getStartcordx()*75-75)));
-                        p.addRoutePiece(pos);
-                        boc.setStartcordx(nextcordx);
-                        //addRoutePiece();
-                    }
-                    xlength--;
+
+                    block = false;
 
                 }
-                while(ylength != 0)
-                {
-                    RectangleRoute pos = new RectangleRoute(50,25);
-                    if(boc.getStartcordy()>boc.getEndcordy()) {
-                        nextcordy = boc.getStartcordy()-1;
-                        boc.commandTranslator(boc.getStartcordx(),boc.getStartcordy(),boc.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((boc.getStartcordy()-2)*75),425 -((boc.getStartcordx()-1)*75));
+                while (ylength != 0) {
+                    if (boc.getStartcordy() > boc.getEndcordy()) {
+                        nextcordy = boc.getStartcordy() - 1;
+                        for (Blockade b : blockades) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getStartcordx(), boc.getStartcordy(), nextcordy)) {
+                                block = true;
+                            }
+                        }
+                        if (!block) {
+                            yAxis(boc, nextcordy, p, true);
+                        } else {
 
-                        p.addRoutePiece(pos);
-                        boc.setStartcordy(nextcordy);
-                    }
-                    else if(boc.getStartcordy()<boc.getEndcordy()) {
-                        nextcordy = boc.getStartcordy()+1;
-                        boc.commandTranslator(boc.getStartcordx(),boc.getStartcordy(),boc.getStartcordx(),nextcordy);
-                        pos.setLocation(125+((boc.getStartcordy()-1)*75),425 -((boc.getStartcordx()-1)*75));
+                            nextcordy = boc.getStartcordy() - 1;
+                            yAxis(boc, nextcordy, p, true);
+                            yAxis(boc, nextcordy, p, true);
+                            nextcordy = boc.getStartcordy() + 1;
+                            yAxis(boc, nextcordy, p, true);
+                        }
 
-                        p.addRoutePiece(pos);
-                        boc.setStartcordy(nextcordy);
+
+                    } else if (boc.getStartcordy() < boc.getEndcordy()) {
+                        nextcordy = boc.getStartcordy() + 1;
+                        for (Blockade b : blockades) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getStartcordx(), boc.getStartcordy(), nextcordy)) {
+                                block = true;
+                            }
+                        }
+                        if (!block) {
+                            yAxis(boc, nextcordy, p, false);
+                        }
+                    } else {
+
+                        nextcordy = boc.getStartcordy() - 1;
+                        yAxis(boc, nextcordy, p, true);
+                        yAxis(boc, nextcordy, p, false);
+                        nextcordy = boc.getStartcordy() + 1;
+                        yAxis(boc, nextcordy, p, true);
                     }
-                    ylength--;
+
                 }
-
+                block = false;
                 p.repaint();
             }
-
         });
+    }
+
+    private void yAxis(BoebotController boc, int nextcordy, Pane p, boolean bigger) {
+        RectangleRoute pos = new RectangleRoute(50, 25);
+        if (bigger) {
+            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), boc.getStartcordx(), nextcordy);
+            pos.setLocation(125 + ((boc.getStartcordy() - 2) * 75), 425 - ((boc.getStartcordx() - 1) * 75));
+        } else {
+            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), boc.getStartcordx(), nextcordy);
+            pos.setLocation(125 + ((boc.getStartcordy() - 1) * 75), 425 - ((boc.getStartcordx() - 1) * 75));
+        }
+        p.addRoutePiece(pos);
+        boc.setStartcordy(nextcordy);
+        ylength--;
+    }
+
+    private void xAxis(BoebotController boc, int nextcordx, Pane p, boolean bigger) {
+        RectangleRoute pos = new RectangleRoute(25, 50);
+        if (bigger) {
+            pos.setLocation(175 + ((boc.getStartcordy() - 2) * 75), 150 + ((boc.getStartcordx() - 2) * 75));
+            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), nextcordx, boc.getStartcordy());
+            p.addRoutePiece(pos);
+        } else {
+            pos.setLocation(100 + ((boc.getStartcordy() - 1) * 75), 375 - ((boc.getStartcordx() * 75 - 75)));
+            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), nextcordx, boc.getStartcordy());
+            p.addRoutePiece(pos);
+        }
+        boc.setStartcordx(nextcordx);
+        xlength--;
     }
 
     public static boolean isStart() {
