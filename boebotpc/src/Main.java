@@ -1,6 +1,8 @@
 import Controllers.BoebotController;
 import Controllers.ButtonController;
 import Controllers.WifiController;
+import Models.RectangleRoute;
+import View.Pane;
 
 import javax.swing.*;
 import java.awt.*;
@@ -204,15 +206,16 @@ public class Main extends JFrame {
         btn_Send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
-
-                try {
-                    ArrayList<Integer> commands = trans.getCommands();
-                    wifi.ConnectionSetup();
-                    wifi.Send(commands);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                if (bc.isStart() && bc.isEnd()) {
+                    try {
+                        ArrayList<Integer> commands = trans.getCommands();
+                        wifi.ConnectionSetup();
+                        wifi.Send(commands);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             });
