@@ -237,6 +237,8 @@ public class Main extends JFrame {
                 trans.clearCommand();
                 p.clearRoutePiece();
                 p.repaint();
+                bc.setStart(false);
+                bc.setEnd(false);
 
 
             }

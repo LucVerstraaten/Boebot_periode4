@@ -9,6 +9,9 @@ import java.io.FileInputStream;
 
 public class ButtonController {
 
+    private static boolean start=false;
+    private static boolean end=false;
+
     public void StartPoint(JButton btn) {
         try {
             btn.setIcon(null);
@@ -41,28 +44,42 @@ public class ButtonController {
     public void addActionListener(BoebotController boc, JButton btn, int x, int y) {
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                if (boc.getStartcordx() == 0 && boc.getEndcordx() == 0) {
+                if (!start) {
                     boc.setStartcordx(x);
                     boc.setStartcordy(y);
                     StartPoint(btn);
+                    start = true;
 
 
-                } else if (boc.getStartcordx() != 0 && boc.getEndcordx() == 0) {
+                } else if (start && !end) {
 
                     boc.setEndcordx(x);
                     boc.setEndcordy(y);
                     EndPoint(btn);
-                } else if (boc.getStartcordx() != 0 && boc.getEndcordx() != 0) {
-                    boc.setStartcordx(0);
-                    boc.setStartcordy(0);
-                    resetPoint(btn);
-                } else if (boc.getEndcordx() != 0) {
-                    boc.setEndcordx(0);
-                    boc.setEndcordy(0);
-                    resetPoint(btn);
+                    end = true;
+
+                } else if (start && end) {
+                    JOptionPane.showMessageDialog(null, "Klik reset if you want to change things", "WARNING: everything is slected", JOptionPane.WARNING_MESSAGE);
+
                 }
             }
 
         });
+    }
+
+    public static boolean isStart() {
+        return start;
+    }
+
+    public static void setStart(boolean start) {
+        ButtonController.start = start;
+    }
+
+    public static boolean isEnd() {
+        return end;
+    }
+
+    public static void setEnd(boolean end) {
+        ButtonController.end = end;
     }
 }
