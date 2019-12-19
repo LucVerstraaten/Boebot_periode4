@@ -1,6 +1,7 @@
 import TI.BoeBot;
 import communicationLayer.Detectie;
 import communicationLayer.FrameControl;
+import communicationLayer.SpeakerControl;
 import hardwareLayer.Sonar;
 import hardwareLayer.WifiCHip;
 
@@ -11,7 +12,9 @@ public class RobotMain {
 
     private static ArrayList<Integer> commands;
     private static boolean driving = false;
+    static SpeakerControl speak = new SpeakerControl();
     public static void main(String[] args) {
+
         while (true) {
 
 
@@ -31,6 +34,11 @@ public class RobotMain {
                 }
             System.out.println("hoi");
             if (commands != null) {
+                speak.start();
+                while (speak.getState() == Thread.State.WAITING) {
+                    BoeBot.wait(1);
+                }
+                BoeBot.wait(2000);
                 for (Integer c : commands) {
                     switch (c) {
                         case 1:

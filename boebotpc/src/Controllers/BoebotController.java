@@ -9,13 +9,13 @@ public class BoebotController {
     private static int startcordy = 0;
     private static int endcordy = 0;
     private ArrayList<Integer> commands = new ArrayList<Integer>();
-    private int  Orientation =1;
+    private int Orientation = 1;
 
-    public void clearCommand(){
-    commands.clear();
+    public void clearCommand() {
+        commands.clear();
     }
-    public void commandTranslator(int cx, int cy,int nx,int ny )
-    {
+
+    public void commandTranslator(int cx, int cy, int nx, int ny) {
         /*
         COMMANDS:
                    1 - FORWARD
@@ -29,77 +29,65 @@ public class BoebotController {
                     3 - SOUTH
                     4 - WEST
          */
-        switch (Orientation){
+        switch (Orientation) {
             case 1:
-                if(nx == cx && ny < cy)
-                {
+                if (nx == cx && ny < cy) {
                     Orientation = 4;
                     commands.add(3);
                     commands.add(1);
                 }
-                if(nx == cx && ny > cy)
-                {
+                if (nx == cx && ny > cy) {
                     Orientation = 2;
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx < cx && ny == cy)
-                {
+                if (nx < cx && ny == cy) {
                     Orientation = 3;
                     commands.add(4);
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx > cx && ny == cy)
-                {
+                if (nx > cx && ny == cy) {
                     commands.add(1);
                 }
                 break;
             case 2:
-                if(nx == cx && ny < cy)
-                {
+                if (nx == cx && ny < cy) {
                     Orientation = 4;
                     commands.add(4);
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx == cx && ny > cy)
-                {
+                if (nx == cx && ny > cy) {
                     commands.add(1);
                 }
-                if(nx < cx && ny == cy)
-                {
+                if (nx < cx && ny == cy) {
                     Orientation = 3;
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx > cx && ny == cy)
-                {
+                if (nx > cx && ny == cy) {
                     Orientation = 1;
                     commands.add(3);
                     commands.add(1);
                 }
                 break;
             case 3:
-                if(nx == cx && ny < cy)
-                {
+                if (nx == cx && ny < cy) {
                     Orientation = 4;
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx == cx && ny > cy)
-                {
+                if (nx == cx && ny > cy) {
                     Orientation = 2;
                     commands.add(3);
                     commands.add(1);
                 }
-                if(nx < cx && ny == cy)
-                {
+                if (nx < cx && ny == cy) {
 
                     commands.add(1);
                 }
-                if(nx > cx && ny == cy)
-                {
+                if (nx > cx && ny == cy) {
                     Orientation = 1;
                     commands.add(4);
                     commands.add(4);
@@ -107,25 +95,21 @@ public class BoebotController {
                 }
                 break;
             case 4:
-                if(nx == cx && ny < cy)
-                {
+                if (nx == cx && ny < cy) {
                     commands.add(1);
                 }
-                if(nx == cx && ny > cy)
-                {
+                if (nx == cx && ny > cy) {
                     Orientation = 2;
                     commands.add(4);
                     commands.add(4);
                     commands.add(1);
                 }
-                if(nx < cx && ny == cy)
-                {
+                if (nx < cx && ny == cy) {
                     Orientation = 3;
                     commands.add(3);
                     commands.add(1);
                 }
-                if(nx > cx && ny == cy)
-                {
+                if (nx > cx && ny == cy) {
                     Orientation = 1;
                     commands.add(4);
                     commands.add(1);
