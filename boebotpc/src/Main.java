@@ -1,5 +1,6 @@
 import Controllers.BoebotController;
 import Controllers.ButtonController;
+import Controllers.SoundController;
 import Controllers.WifiController;
 import View.Pane;
 
@@ -68,7 +69,7 @@ public class Main extends JFrame {
 
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+            SoundController.playSound();
 
         btn_x1_y1.setBounds(100, 425, 25, 25);
         btn_x2_y1.setBounds(100, 350, 25, 25);

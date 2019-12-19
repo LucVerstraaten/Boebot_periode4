@@ -70,7 +70,6 @@ public class ButtonController {
 
                 } else if (start && end) {
                     JOptionPane.showMessageDialog(null, "Klik reset if you want to change things", "WARNING: everything is slected", JOptionPane.WARNING_MESSAGE);
-
                 }
             }
 

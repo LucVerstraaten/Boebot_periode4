@@ -9,10 +9,14 @@ import java.util.ArrayList;
 public class Pane extends JPanel {
 private Color c;
 private ArrayList<RectangleRoute> routePieces = new ArrayList();
+    private ArrayList<RectangleRoute> routeBlocks = new ArrayList();
 
 public void addRoutePiece(RectangleRoute routePiece){
     routePieces.add(routePiece);
 }
+    public void addRouteBlocks(RectangleRoute routeBlock){
+        routeBlocks.add(routeBlock);
+    }
 
     public void clearRoutePiece(){
         routePieces.clear();
@@ -44,7 +48,11 @@ public void setColor(Color c){
         g.fillRect(50,425, 650, 25);
 
         for(RectangleRoute r : routePieces){
-            r.draw(g2d);
+            r.drawB(g2d);
+        }
+
+        for(RectangleRoute r : routeBlocks){
+            r.drawR(g2d);
         }
 
 

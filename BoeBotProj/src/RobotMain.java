@@ -1,6 +1,7 @@
 import TI.BoeBot;
 import communicationLayer.Detectie;
 import communicationLayer.FrameControl;
+import communicationLayer.SpeakerControl;
 import hardwareLayer.Sonar;
 import hardwareLayer.WifiCHip;
 
@@ -11,6 +12,7 @@ public class RobotMain {
 
     private static ArrayList<Integer> commands;
     private static boolean driving = false;
+    SpeakerControl speak = new SpeakerControl();
     public static void main(String[] args) {
         while (true) {
 

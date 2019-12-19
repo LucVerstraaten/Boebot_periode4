@@ -16,10 +16,19 @@ public class RectangleRoute extends Point2D {
         this.height = height;
     }
 
-    public void draw(Graphics2D g2d){
+    public void drawB(Graphics2D g2d){
         Shape shape = new Rectangle2D.Double(x,y, width, height) ;
         System.out.println("hoi");
         g2d.setColor(Color.blue);
+        g2d.fill(shape);
+        g2d.draw(shape);
+
+
+    }
+    public void drawR(Graphics2D g2d){
+        Shape shape = new Rectangle2D.Double(x,y, width, height) ;
+        System.out.println("hoi");
+        g2d.setColor(Color.RED);
         g2d.fill(shape);
         g2d.draw(shape);
 
