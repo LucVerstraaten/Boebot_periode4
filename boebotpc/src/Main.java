@@ -1,58 +1,70 @@
 import Controllers.BoebotController;
 import Controllers.ButtonController;
+import Controllers.DbConnector;
 import Controllers.WifiController;
-
+import java.sql.ResultSet;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Main extends JFrame {
+
     private static JButton btn_x1_y1 = new JButton();
     private static JButton btn_x2_y1 = new JButton();
     private static JButton btn_x3_y1 = new JButton();
     private static JButton btn_x4_y1 = new JButton();
+    private static JButton btn_x5_y1 = new JButton();
+
     private static JButton btn_x1_y2 = new JButton();
     private static JButton btn_x2_y2 = new JButton();
     private static JButton btn_x3_y2 = new JButton();
     private static JButton btn_x4_y2 = new JButton();
+    private static JButton btn_x5_y2 = new JButton();
+
     private static JButton btn_x1_y3 = new JButton();
     private static JButton btn_x2_y3 = new JButton();
     private static JButton btn_x3_y3 = new JButton();
     private static JButton btn_x4_y3 = new JButton();
+    private static JButton btn_x5_y3 = new JButton();
+
     private static JButton btn_x1_y4 = new JButton();
     private static JButton btn_x2_y4 = new JButton();
     private static JButton btn_x3_y4 = new JButton();
     private static JButton btn_x4_y4 = new JButton();
-    private static Button btn_x5_y1 = new Button();
-    private static Button btn_x5_y2 = new Button();
-    private static Button btn_x5_y3 = new Button();
-    private static Button btn_x5_y4 = new Button();
-    private static Button btn_x1_y5 = new Button();
-    private static Button btn_x2_y5 = new Button();
-    private static Button btn_x3_y5 = new Button();
-    private static Button btn_x5_y5 = new Button();
-    private static Button btn_x4_y5 = new Button();
-    private static Button btn_x1_y6 = new Button();
-    private static Button btn_x2_y6 = new Button();
-    private static Button btn_x3_y6 = new Button();
-    private static Button btn_x4_y6 = new Button();
-    private static Button btn_x5_y6 = new Button();
-    private static Button btn_x1_y7 = new Button();
-    private static Button btn_x2_y7 = new Button();
-    private static Button btn_x3_y7 = new Button();
-    private static Button btn_x4_y7 = new Button();
-    private static Button btn_x5_y7 = new Button();
-    private static Button btn_x1_y8 = new Button();
-    private static Button btn_x2_y8 = new Button();
-    private static Button btn_x3_y8 = new Button();
-    private static Button btn_x4_y8 = new Button();
-    private static Button btn_x5_y8 = new Button();
+    private static JButton btn_x5_y4 = new JButton();
+
+    private static JButton btn_x1_y5 = new JButton();
+    private static JButton btn_x2_y5 = new JButton();
+    private static JButton btn_x3_y5 = new JButton();
+    private static JButton btn_x4_y5 = new JButton();
+    private static JButton btn_x5_y5 = new JButton();
+
+    private static JButton btn_x1_y6 = new JButton();
+    private static JButton btn_x2_y6 = new JButton();
+    private static JButton btn_x3_y6 = new JButton();
+    private static JButton btn_x4_y6 = new JButton();
+    private static JButton btn_x5_y6 = new JButton();
+
+    private static JButton btn_x1_y7 = new JButton();
+    private static JButton btn_x2_y7 = new JButton();
+    private static JButton btn_x3_y7 = new JButton();
+    private static JButton btn_x4_y7 = new JButton();
+    private static JButton btn_x5_y7 = new JButton();
+
+    private static JButton btn_x1_y8 = new JButton();
+    private static JButton btn_x2_y8 = new JButton();
+    private static JButton btn_x3_y8 = new JButton();
+    private static JButton btn_x4_y8 = new JButton();
+    private static JButton btn_x5_y8 = new JButton();
+
     private static JButton btn_Route = new JButton();
     private static JButton btn_Send = new JButton();
     private static JButton btn_reset= new JButton();
+    private static JButton btn_Blokkade = new JButton();
 
     private static WifiController wifi = new WifiController();
 
@@ -62,6 +74,8 @@ public class Main extends JFrame {
     private static Main window = new Main();
     private  static Pane p = new Pane();
 
+    private static  DbConnector db = new DbConnector();
+
 
     public static void main(String args[]) {
 
@@ -69,7 +83,7 @@ public class Main extends JFrame {
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
+        db.main();
         btn_x1_y1.setBounds(100,425,25,25);
         btn_x2_y1.setBounds(100,350,25,25);
         btn_x3_y1.setBounds(100,275,25,25);
@@ -121,26 +135,97 @@ public class Main extends JFrame {
         btn_Route.setBounds(500,500,100,50);
         btn_Send.setBounds(600,500,100,50);
         btn_reset.setBounds(700,500,100,50);
+        btn_Blokkade.setBounds(800,500,100,50);
         btn_Route.setText("Bereken route");
         btn_Send.setText("Send route");
         btn_reset.setText("reset route");
+        btn_Blokkade.setText("Blokkade ingeven");
 
         bc.addActionListener(trans,btn_x1_y1,1,1);
         bc.addActionListener(trans,btn_x2_y1,2,1);
         bc.addActionListener(trans,btn_x3_y1,3,1);
         bc.addActionListener(trans,btn_x4_y1,4,1);
+        bc.addActionListener(trans,btn_x5_y1,5,1);
+
         bc.addActionListener(trans,btn_x1_y2,1,2);
         bc.addActionListener(trans,btn_x2_y2,2,2);
         bc.addActionListener(trans,btn_x3_y2,3,2);
         bc.addActionListener(trans,btn_x4_y2,4,2);
+        bc.addActionListener(trans,btn_x5_y2,5,2);
+
         bc.addActionListener(trans,btn_x1_y3,1,3);
         bc.addActionListener(trans,btn_x2_y3,2,3);
         bc.addActionListener(trans,btn_x3_y3,3,3);
         bc.addActionListener(trans,btn_x4_y3,4,3);
+        bc.addActionListener(trans,btn_x5_y3,5,3);
+
         bc.addActionListener(trans,btn_x1_y4,1,4);
         bc.addActionListener(trans,btn_x2_y4,2,4);
         bc.addActionListener(trans,btn_x3_y4,3,4);
         bc.addActionListener(trans,btn_x4_y4,4,4);
+        bc.addActionListener(trans,btn_x5_y4,5,4);
+
+        bc.addActionListener(trans,btn_x1_y5,1,5);
+        bc.addActionListener(trans,btn_x2_y5,2,5);
+        bc.addActionListener(trans,btn_x3_y5,3,5);
+        bc.addActionListener(trans,btn_x4_y5,4,5);
+        bc.addActionListener(trans,btn_x5_y5,5,5);
+
+        bc.addActionListener(trans,btn_x1_y6,1,6);
+        bc.addActionListener(trans,btn_x2_y6,2,6);
+        bc.addActionListener(trans,btn_x3_y6,3,6);
+        bc.addActionListener(trans,btn_x4_y6,4,6);
+        bc.addActionListener(trans,btn_x5_y6,5,6);
+
+        bc.addActionListener(trans,btn_x1_y7,1,7);
+        bc.addActionListener(trans,btn_x2_y7,2,7);
+        bc.addActionListener(trans,btn_x3_y7,3,7);
+        bc.addActionListener(trans,btn_x4_y7,4,7);
+        bc.addActionListener(trans,btn_x5_y7,5,7);
+
+        bc.addActionListener(trans,btn_x1_y8,1,8);
+        bc.addActionListener(trans,btn_x2_y8,2,8);
+        bc.addActionListener(trans,btn_x3_y8,3,8);
+        bc.addActionListener(trans,btn_x4_y8,4,8);
+        bc.addActionListener(trans,btn_x5_y8,5,8);
+
+
+
+        btn_Blokkade.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+
+                int bx = 0;
+                int ex = 0;
+                int by = 0;
+                int ey = 0;
+
+                // create a jframe
+                JFrame frame = new JFrame("Enter coordinate");
+
+                // show a joptionpane dialog using showMessageDialog
+                String beginX = JOptionPane.showInputDialog(frame,"Begin X ");
+                String eindX = JOptionPane.showInputDialog(frame,"Eind X ");
+                String beginY = JOptionPane.showInputDialog(frame,"Begin Y ");
+                String eindY = JOptionPane.showInputDialog(frame,"Eind Y ");
+
+                try
+                {
+                    bx = Integer.parseInt(beginX); //Convert the string gotten above to an int
+                    ex = Integer.parseInt(eindX);
+                    by = Integer.parseInt(beginY);
+                    ey = Integer.parseInt(eindY);
+                }
+                catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+                String sql = "INSERT INTO `boebotblokkade`(`BeginX`, `EindX`, `BeginY`, `EindY`) VALUES (" + bx + ", "+ ex +", "+ by +", "+ ey +");";
+                db.insertCoordinaten(sql);
+
+                System.out.println(bx + " " + ex + " " + by + " " + ey + "");
+            }
+        });
 
         btn_Route.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -152,7 +237,7 @@ public class Main extends JFrame {
                 p.clearRoutePiece();
                 while(xlength != 0)
                 {
-                    RectangleRoute pos = new RectangleRoute(25,50);
+                    RectangleRoute pos = new RectangleRoute(25,75);
 
                     if(trans.getStartcordx()>trans.getEndcordx()) {
                         nextcordx = trans.getStartcordx()-1;
@@ -165,7 +250,7 @@ public class Main extends JFrame {
                     {
                         nextcordx = trans.getStartcordx()+1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),nextcordx,trans.getStartcordy());
-                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),375-((trans.getStartcordx()*75-75)));
+                        pos.setLocation(100 +((trans.getStartcordy()-1)*75),350-((trans.getStartcordx()*75-75)));
                         p.addRoutePiece(pos);
                         trans.setStartcordx(nextcordx);
                         //addRoutePiece();
@@ -175,7 +260,7 @@ public class Main extends JFrame {
                 }
                 while(ylength != 0)
                 {
-                    RectangleRoute pos = new RectangleRoute(50,25);
+                    RectangleRoute pos = new RectangleRoute(75,25);
                     if(trans.getStartcordy()>trans.getEndcordy()) {
                         nextcordy = trans.getStartcordy()-1;
                         trans.commandTranslator(trans.getStartcordx(),trans.getStartcordy(),trans.getStartcordx(),nextcordy);
@@ -293,6 +378,8 @@ public class Main extends JFrame {
         window.add(btn_Route);
         window.add(btn_Send);
         window.add(btn_reset);
+        window.add(btn_Blokkade);
+
         window.add(p);
         window.setTitle("Frans ik heb vraag");
         window.setMinimumSize(new Dimension(1000,1000));
