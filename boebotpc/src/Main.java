@@ -235,7 +235,7 @@ public class Main extends JFrame {
             }
         });
 
-        bc.addRouteActionListener(trans, btn_Route, p);
+        bc.addRouteActionListener(trans, btn_Route, p,db);
         btn_Send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
@@ -244,11 +244,14 @@ public class Main extends JFrame {
                         ArrayList<Integer> commands = trans.getCommands();
                         wifi.ConnectionSetup();
                         wifi.Send(commands);
+                        wifi.CloseServer();
+                        wifi.CloseSocket();
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     }
+
                 }
             }
         });

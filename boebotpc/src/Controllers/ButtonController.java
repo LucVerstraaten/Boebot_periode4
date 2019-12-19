@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
@@ -76,11 +77,22 @@ public class ButtonController {
         });
     }
 
-    public void addRouteActionListener(BoebotController boc, JButton btn, Pane p) {
+    public void addRouteActionListener(BoebotController boc, JButton btn, Pane p, DbConnector db) {
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
                 ArrayList<Blockade> blockades = new ArrayList<>();
+                String sql = "SELECT * From `boebotblokkade`";
+                ResultSet rs = db.getData(sql);
+                try {
+                    while (rs.next()) {
+                        Blockade b = new Blockade(rs.getInt("BeginX"), rs.getInt("EindX"),
+                                rs.getInt("Beginy"), rs.getInt("EindY"));
+                        blockades.add(b);
+                    }
+                } catch (Exception e) {
+
+                }
                 xlength = Math.abs(boc.getStartcordx() - boc.getEndcordx());
                 ylength = Math.abs(boc.getStartcordy() - boc.getEndcordy());
                 int nextcordx = 0;
@@ -93,13 +105,13 @@ public class ButtonController {
                     if (boc.getStartcordx() > boc.getEndcordx()) {
                         nextcordx = boc.getStartcordx() - 1;
                         for (Blockade b : blockades) {
-                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getEndcordx(), boc.getStartcordy(), boc.getStartcordy())) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), nextcordx, boc.getStartcordy(), boc.getStartcordy())) {
                                 block = true;
                             }
                         }
                         if (!block) {
                             xAxis(boc, nextcordx, p, true);
-
+                            xlength--;
                         } else {
                             if (boc.getStartcordy() > boc.getEndcordy()) {
                                 nextcordy = boc.getStartcordy() - 1;
@@ -107,17 +119,20 @@ public class ButtonController {
                             } else if (boc.getStartcordy() < boc.getEndcordy()) {
                                 nextcordy = boc.getStartcordy() + 1;
                                 yAxis(boc, nextcordy, p, false);
+                                block = false;
                             }
+                            xlength--;
                         }
                     } else if (boc.getStartcordx() < boc.getEndcordx()) {
                         nextcordx = boc.getStartcordx() + 1;
                         for (Blockade b : blockades) {
-                            if (blockade.isBlocked(b, boc.getStartcordx(), boc.getEndcordx(), boc.getStartcordy(), boc.getStartcordy())) {
+                            if (blockade.isBlocked(b, boc.getStartcordx(), nextcordx, boc.getStartcordy(), boc.getStartcordy())) {
                                 block = true;
                             }
                         }
                         if (!block) {
                             xAxis(boc, nextcordx, p, false);
+                            xlength--;
                         } else {
                             if (boc.getStartcordy() > boc.getEndcordy()) {
                                 nextcordy = boc.getStartcordy() - 1;
@@ -125,11 +140,13 @@ public class ButtonController {
                             } else if (boc.getStartcordy() < boc.getEndcordy()) {
                                 nextcordy = boc.getStartcordy() + 1;
                                 yAxis(boc, nextcordy, p, false);
+                                block = false;
                             }
+                            xlength--;
                         }
                     }
 
-                    block = false;
+
 
                 }
                 while (ylength != 0) {
@@ -144,11 +161,13 @@ public class ButtonController {
                             yAxis(boc, nextcordy, p, true);
                         } else {
 
-                            nextcordy = boc.getStartcordy() - 1;
+                            int x =boc.getStartcordx();
+                            //nextcordy = boc.getStartcordy() - 1;
+                            xAxis(boc, x+1, p, true);
                             yAxis(boc, nextcordy, p, true);
-                            yAxis(boc, nextcordy, p, true);
-                            nextcordy = boc.getStartcordy() + 1;
-                            yAxis(boc, nextcordy, p, true);
+                            //nextcordy = boc.getStartcordy() + 1;
+                            xAxis(boc, x, p, true);
+                            block = false;
                         }
 
 
@@ -161,31 +180,37 @@ public class ButtonController {
                         }
                         if (!block) {
                             yAxis(boc, nextcordy, p, false);
-                        }
-                    } else {
+                        } else {
 
-                        nextcordy = boc.getStartcordy() - 1;
-                        yAxis(boc, nextcordy, p, true);
-                        yAxis(boc, nextcordy, p, false);
-                        nextcordy = boc.getStartcordy() + 1;
-                        yAxis(boc, nextcordy, p, true);
+                            int x =boc.getStartcordx();
+
+                            xAxis(boc, x+1, p, true);
+                            yAxis(boc, nextcordy, p, false);
+                            //nextcordy = boc.getStartcordy() + 1;
+                            xAxis(boc, x, p, true);
+                            block = false;
+                        }
+
                     }
 
                 }
-                block = false;
-                p.repaint();
+
+                    p.repaint();
+
             }
         });
     }
 
     private void yAxis(BoebotController boc, int nextcordy, Pane p, boolean bigger) {
         RectangleRoute pos = new RectangleRoute(50, 25);
-        if (bigger) {
-            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), boc.getStartcordx(), nextcordy);
-            pos.setLocation(125 + ((boc.getStartcordy() - 2) * 75), 425 - ((boc.getStartcordx() - 1) * 75));
+        int x = boc.getStartcordx();
+        int y=boc.getStartcordy();
+        if (!bigger) {
+            boc.commandTranslator(x, y, x, nextcordy);
+            pos.setLocation(125 + ((y - 2) * 75), 425 - ((x - 1) * 75));
         } else {
-            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), boc.getStartcordx(), nextcordy);
-            pos.setLocation(125 + ((boc.getStartcordy() - 1) * 75), 425 - ((boc.getStartcordx() - 1) * 75));
+            boc.commandTranslator(x, y, x, nextcordy);
+            pos.setLocation(125 + ((y - 1) * 75), 425 - ((x - 1) * 75));
         }
         p.addRoutePiece(pos);
         boc.setStartcordy(nextcordy);
@@ -194,17 +219,19 @@ public class ButtonController {
 
     private void xAxis(BoebotController boc, int nextcordx, Pane p, boolean bigger) {
         RectangleRoute pos = new RectangleRoute(25, 50);
-        if (bigger) {
-            pos.setLocation(175 + ((boc.getStartcordy() - 2) * 75), 150 + ((boc.getStartcordx() - 2) * 75));
-            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), nextcordx, boc.getStartcordy());
+        int y=boc.getStartcordy();
+        int x = boc.getStartcordx();
+        if (!bigger) {
+            pos.setLocation(175 + ((y - 2) * 75), 150 + ((x - 2) * 75));
+            boc.commandTranslator(x, y, nextcordx, y);
             p.addRoutePiece(pos);
         } else {
-            pos.setLocation(100 + ((boc.getStartcordy() - 1) * 75), 375 - ((boc.getStartcordx() * 75 - 75)));
-            boc.commandTranslator(boc.getStartcordx(), boc.getStartcordy(), nextcordx, boc.getStartcordy());
+            pos.setLocation(100 + ((y - 1) * 75), 350 - ((x * 75 - 75)));
+            boc.commandTranslator(x, y, nextcordx,y);
             p.addRoutePiece(pos);
         }
         boc.setStartcordx(nextcordx);
-        xlength--;
+
     }
 
     public static boolean isStart() {
@@ -222,4 +249,6 @@ public class ButtonController {
     public static void setEnd(boolean end) {
         ButtonController.end = end;
     }
+
+
 }

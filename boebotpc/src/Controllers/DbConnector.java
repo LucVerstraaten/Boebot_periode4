@@ -12,7 +12,7 @@ public class DbConnector {
 
     public static void main() {
 
-        String url = "jdbc:mysql://localhost:81/boebotblokkade";
+        String url = "jdbc:mysql://192.168.1.185:3306/boebot";
         String username = "testuser";
         String password = "securepwd";
 
